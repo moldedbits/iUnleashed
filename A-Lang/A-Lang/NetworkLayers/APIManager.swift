@@ -27,6 +27,7 @@ class APIManager {
     fileprivate var _refHandle: DatabaseHandle!
     fileprivate var _authHandle: AuthStateDidChangeListenerHandle!
     
+    // MARK: Providers categories and their names for Category Screen
     func getCategories(completion: (([Category]) -> ())? = nil) {
         ref.child(Child.categories.rawValue).observe(.value) { snapshot in
             var categories: [Category] = []
@@ -63,6 +64,7 @@ class APIManager {
         }
     }
     
+    // MARK: Providers all the basic passages information for a particular category
     func getPassagesForCategory(_ name: String, completion: (([Passage]) -> ())? = nil) {
         ref.child(Child.passages.rawValue).child(name).observe(.value) { snapshot in
             var passages: [Passage] = []
