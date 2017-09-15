@@ -13,6 +13,7 @@ class CategoryOverviewCell: BasePageCollectionCell {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var customTitle: UILabel!
+    @IBOutlet weak var numberOfPassagesLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,4 +23,16 @@ class CategoryOverviewCell: BasePageCollectionCell {
         customTitle.layer.shadowOpacity = 0.2
     }
 
+    func configure(with model: CategoryOverviewCellModel) {
+        let backgroundColors = model.type.frontAndBackColor
+        frontContainerView.backgroundColor = backgroundColors.0
+
+        backgroundImageView.image = model.type.image
+
+        customTitle.text = model.name
+        customTitle.textColor = model.type.textColor
+
+        numberOfPassagesLabel.textColor = model.type.gradientColors.last
+        backContainerView.backgroundColor = model.type.gradientColors.first
+    }
 }

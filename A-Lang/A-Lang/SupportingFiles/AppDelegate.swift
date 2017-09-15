@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UINavigationController(rootViewController: CategoriesOverviewViewController())
+        window?.rootViewController = UINavigationController(rootViewController: CategoriesOverviewViewController(with: CategoriesViewModel.dummy()))
         window?.makeKeyAndVisible()
         
         return true
