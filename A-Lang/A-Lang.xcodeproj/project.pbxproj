@@ -12,6 +12,7 @@
 		0950BFDF1F6B02E300B76F2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0950BFDD1F6B02E300B76F2A /* Main.storyboard */; };
 		0950BFE11F6B02E300B76F2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0950BFE01F6B02E300B76F2A /* Assets.xcassets */; };
 		0950BFE41F6B02E300B76F2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0950BFE21F6B02E300B76F2A /* LaunchScreen.storyboard */; };
+		0950BFEC1F6B083E00B76F2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */; };
 		F4AA36CA7D866A6E4117F0E4 /* Pods_A_Lang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF0BEF04719A31D25DAD2E8 /* Pods_A_Lang.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		0950BFE01F6B02E300B76F2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0950BFE31F6B02E300B76F2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0950BFE51F6B02E300B76F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2DF0BEF04719A31D25DAD2E8 /* Pods_A_Lang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Lang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DC75185A0B76498D6D6210 /* Pods-A-Lang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Lang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang.debug.xcconfig"; sourceTree = "<group>"; };
 		E6A3DA066605484BBECF3F6F /* Pods-A-Lang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Lang.release.xcconfig"; path = "Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				0950BFE01F6B02E300B76F2A /* Assets.xcassets */,
 				0950BFE21F6B02E300B76F2A /* LaunchScreen.storyboard */,
 				0950BFE51F6B02E300B76F2A /* Info.plist */,
+				0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */,
 			);
 			path = "A-Lang";
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0950BFE41F6B02E300B76F2A /* LaunchScreen.storyboard in Resources */,
+				0950BFEC1F6B083E00B76F2A /* GoogleService-Info.plist in Resources */,
 				0950BFE11F6B02E300B76F2A /* Assets.xcassets in Resources */,
 				0950BFDF1F6B02E300B76F2A /* Main.storyboard in Resources */,
 			);
@@ -179,9 +183,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -392,6 +401,7 @@
 				0950BFEA1F6B02E300B76F2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
