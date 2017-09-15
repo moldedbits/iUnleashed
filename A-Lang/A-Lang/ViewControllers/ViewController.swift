@@ -14,9 +14,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        APIManager.shared.getCategories()
+//        APIManager.shared.getCategories()
 //        APIManager.shared.getPassages()
 //        APIManager.shared.getPassageDetails()
+//        APIManager.shared.getPassagesForCategory("one")
+        
     }
     
 }

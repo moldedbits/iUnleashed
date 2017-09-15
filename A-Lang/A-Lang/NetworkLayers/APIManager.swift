@@ -60,7 +60,18 @@ class APIManager {
                 category.name = key
                 categories.append(category)
             }
+        }
+    }
+    
+    func getPassagesForCategory(_ name: String, completion: (([Passage]) -> ())? = nil) {
+        ref.child(Child.passages.rawValue).child(name).observe(.value) { snapshot in
+            var passages: [Passage] = []
+            guard let data = snapshot.value as? [[String: AnyObject]] else {
+                return
+            }
             
+            passages = Mapper<Passage>().mapArray(JSONArray: data)
+            completion?(passages)
         }
     }
     
