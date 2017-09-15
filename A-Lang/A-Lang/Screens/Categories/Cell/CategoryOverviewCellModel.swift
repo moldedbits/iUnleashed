@@ -21,10 +21,10 @@ struct CategoryOverviewCellModel {
 
 enum CategoryOverviewType: String {
 
-    case travel
-    case relationship
-    case introduction
-    case work
+    case travel = "Travel"
+    case relationships = "Relationship"
+    case introduction = "Introduction"
+    case work = "Work"
     case unknown
 
     var image: UIImage {

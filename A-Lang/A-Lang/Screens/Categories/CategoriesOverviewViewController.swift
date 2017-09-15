@@ -50,6 +50,14 @@ extension CategoriesOverviewViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryOverviewCell else { return }
 
-        cell.cellIsOpen(!cell.isOpened)
+        if cell.isOpened {
+            let vc = CategoryDetailTableViewController()
+            pushToViewController(vc)
+        } else {
+            cell.cellIsOpen(!cell.isOpened)
+            APIManager.shared.getPassagesForCategory(viewModel.categories[indexPath.row].name ?? "") { passages in
+                cell.setNumberOfPassages(passages.count)
+            }
+        }
     }
 }

@@ -29,10 +29,14 @@ class CategoryOverviewCell: BasePageCollectionCell {
 
         backgroundImageView.image = model.type.image
 
-        customTitle.text = model.name
+        customTitle.text = model.name.capitalized
         customTitle.textColor = model.type.textColor
 
         numberOfPassagesLabel.textColor = model.type.gradientColors.last
         backContainerView.backgroundColor = model.type.gradientColors.first
+    }
+
+    func setNumberOfPassages(_ number: Int) {
+        numberOfPassagesLabel.text = "Available exercises: \(number)"
     }
 }

@@ -17,10 +17,4 @@ struct CategoriesViewModel {
         self.categories = categories
         categoryModels = categories.map { CategoryOverviewCellModel(with: $0) }
     }
-
-    static func dummy() -> CategoriesViewModel {
-        let categories = ["travel", "relationship", "introduction", "work", "others"].map { Category(name: $0) }
-
-        return CategoriesViewModel(with: categories)
-    }
 }
