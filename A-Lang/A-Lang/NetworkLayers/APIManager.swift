@@ -25,7 +25,6 @@ class APIManager {
     
     var categories: [DataSnapshot]! = []
     
-    
     func getCategories() {
         ref.child(Child.categories.rawValue).observe(.value) { snapshot in
             for category in snapshot.children {
