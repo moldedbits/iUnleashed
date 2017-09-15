@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		0950BFDA1F6B02E300B76F2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0950BFD91F6B02E300B76F2A /* AppDelegate.swift */; };
-		0950BFDC1F6B02E300B76F2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0950BFDB1F6B02E300B76F2A /* ViewController.swift */; };
-		0950BFDF1F6B02E300B76F2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0950BFDD1F6B02E300B76F2A /* Main.storyboard */; };
 		0950BFE11F6B02E300B76F2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0950BFE01F6B02E300B76F2A /* Assets.xcassets */; };
 		0950BFE41F6B02E300B76F2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0950BFE21F6B02E300B76F2A /* LaunchScreen.storyboard */; };
 		0950BFEC1F6B083E00B76F2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */; };
 		09ADE0B51F6BB0B4006EEB7E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADE0B41F6BB0B4006EEB7E /* APIManager.swift */; };
+		B02AE3071F6C070E00B55B15 /* CategoryOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02AE3051F6C070E00B55B15 /* CategoryOverviewCell.swift */; };
+		B02AE3081F6C070E00B55B15 /* CategoryOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02AE3061F6C070E00B55B15 /* CategoryOverviewCell.xib */; };
+		B02AE30A1F6C095400B55B15 /* CategoriesOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02AE3091F6C095400B55B15 /* CategoriesOverviewViewController.swift */; };
+		B09F1D3B1F6BBF3E009BC4BF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B09F1D3A1F6BBF3E009BC4BF /* Info.plist */; };
+		B0CD1CCC1F6C018500065FC2 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD1CCB1F6C018500065FC2 /* ThemeManager.swift */; };
+		B0CD1CCE1F6C01E800065FC2 /* UIView+nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD1CCD1F6C01E800065FC2 /* UIView+nib.swift */; };
 		F4AA36CA7D866A6E4117F0E4 /* Pods_A_Lang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF0BEF04719A31D25DAD2E8 /* Pods_A_Lang.framework */; };
 		FD0A80DF1F6BD8BD007565AB /* PassageCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A80DE1F6BD8BD007565AB /* PassageCategory.swift */; };
 		FD0A80E31F6BD98D007565AB /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A80E21F6BD98D007565AB /* Sentence.swift */; };
@@ -32,15 +36,18 @@
 /* Begin PBXFileReference section */
 		0950BFD61F6B02E300B76F2A /* A-Lang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A-Lang.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0950BFD91F6B02E300B76F2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0950BFDB1F6B02E300B76F2A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0950BFDE1F6B02E300B76F2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0950BFE01F6B02E300B76F2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0950BFE31F6B02E300B76F2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0950BFE51F6B02E300B76F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		09ADE0B41F6BB0B4006EEB7E /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		2DF0BEF04719A31D25DAD2E8 /* Pods_A_Lang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Lang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DC75185A0B76498D6D6210 /* Pods-A-Lang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Lang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang.debug.xcconfig"; sourceTree = "<group>"; };
+		B02AE3051F6C070E00B55B15 /* CategoryOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOverviewCell.swift; sourceTree = "<group>"; };
+		B02AE3061F6C070E00B55B15 /* CategoryOverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryOverviewCell.xib; sourceTree = "<group>"; };
+		B02AE3091F6C095400B55B15 /* CategoriesOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesOverviewViewController.swift; sourceTree = "<group>"; };
+		B09F1D3A1F6BBF3E009BC4BF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../../Info.plist; sourceTree = "<group>"; };
+		B0CD1CCB1F6C018500065FC2 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		B0CD1CCD1F6C01E800065FC2 /* UIView+nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+nib.swift"; path = "A-Lang/Theme/UIView+nib.swift"; sourceTree = SOURCE_ROOT; };
 		E6A3DA066605484BBECF3F6F /* Pods-A-Lang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Lang.release.xcconfig"; path = "Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang.release.xcconfig"; sourceTree = "<group>"; };
 		FD0A80DE1F6BD8BD007565AB /* PassageCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageCategory.swift; sourceTree = "<group>"; };
 		FD0A80E21F6BD98D007565AB /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
@@ -89,11 +96,12 @@
 		0950BFD81F6B02E300B76F2A /* A-Lang */ = {
 			isa = PBXGroup;
 			children = (
-				0950BFE51F6B02E300B76F2A /* Info.plist */,
 				FD1000001F6BA87700281FD0 /* DataModels */,
+				B0CD1CCA1F6C017300065FC2 /* Theme */,
+				B047E0EA1F6BE43500478767 /* Helpers */,
 				09B17F1C1F6BA75100B38993 /* NetworkLayers */,
-				09B17F1B1F6BA73900B38993 /* ViewControllers */,
-				09B17F1A1F6BA72600B38993 /* XIB's */,
+				09B17F1B1F6BA73900B38993 /* Screens */,
+				09B17F1A1F6BA72600B38993 /* Storyboards */,
 				09B17F191F6BA70500B38993 /* SupportingFiles */,
 			);
 			path = "A-Lang";
@@ -102,6 +110,7 @@
 		09B17F191F6BA70500B38993 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				B09F1D3A1F6BBF3E009BC4BF /* Info.plist */,
 				0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */,
 				0950BFE01F6B02E300B76F2A /* Assets.xcassets */,
 				0950BFD91F6B02E300B76F2A /* AppDelegate.swift */,
@@ -109,21 +118,23 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		09B17F1A1F6BA72600B38993 /* XIB's */ = {
+		09B17F1A1F6BA72600B38993 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				0950BFDD1F6B02E300B76F2A /* Main.storyboard */,
 				0950BFE21F6B02E300B76F2A /* LaunchScreen.storyboard */,
 			);
-			path = "XIB's";
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		09B17F1B1F6BA73900B38993 /* ViewControllers */ = {
+		09B17F1B1F6BA73900B38993 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				0950BFDB1F6B02E300B76F2A /* ViewController.swift */,
+				B09F1D3E1F6BCC7C009BC4BF /* Categories */,
+				B09F1D3F1F6BCC84009BC4BF /* Category details */,
+				B09F1D401F6BCC8E009BC4BF /* Passage */,
+				B09F1D411F6BCCBE009BC4BF /* Quiz */,
 			);
-			path = ViewControllers;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		09B17F1C1F6BA75100B38993 /* NetworkLayers */ = {
@@ -141,6 +152,61 @@
 				E6A3DA066605484BBECF3F6F /* Pods-A-Lang.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B047E0EA1F6BE43500478767 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B0CD1CCD1F6C01E800065FC2 /* UIView+nib.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B09F1D3E1F6BCC7C009BC4BF /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B0CD1CC51F6BFF7900065FC2 /* Cell */,
+				B02AE3091F6C095400B55B15 /* CategoriesOverviewViewController.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		B09F1D3F1F6BCC84009BC4BF /* Category details */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Category details";
+			sourceTree = "<group>";
+		};
+		B09F1D401F6BCC8E009BC4BF /* Passage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Passage;
+			sourceTree = "<group>";
+		};
+		B09F1D411F6BCCBE009BC4BF /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Quiz;
+			sourceTree = "<group>";
+		};
+		B0CD1CC51F6BFF7900065FC2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B02AE3051F6C070E00B55B15 /* CategoryOverviewCell.swift */,
+				B02AE3061F6C070E00B55B15 /* CategoryOverviewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B0CD1CCA1F6C017300065FC2 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				B0CD1CCB1F6C018500065FC2 /* ThemeManager.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		B59D3B3C06A730E9E7C4D570 /* Frameworks */ = {
@@ -232,9 +298,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0950BFE41F6B02E300B76F2A /* LaunchScreen.storyboard in Resources */,
+				B02AE3081F6C070E00B55B15 /* CategoryOverviewCell.xib in Resources */,
 				0950BFEC1F6B083E00B76F2A /* GoogleService-Info.plist in Resources */,
 				0950BFE11F6B02E300B76F2A /* Assets.xcassets in Resources */,
-				0950BFDF1F6B02E300B76F2A /* Main.storyboard in Resources */,
+				B09F1D3B1F6BBF3E009BC4BF /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,19 +340,31 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/EasyTipView/EasyTipView.framework",
+				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
+				"${BUILT_PRODUCTS_DIR}/expanding-collection/expanding_collection.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActiveLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyTipView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/expanding_collection.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -319,14 +398,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0CD1CCE1F6C01E800065FC2 /* UIView+nib.swift in Sources */,
 				09ADE0B51F6BB0B4006EEB7E /* APIManager.swift in Sources */,
 				FD0A80EB1F6BE1BA007565AB /* PassageText.swift in Sources */,
 				FD0A80E31F6BD98D007565AB /* Sentence.swift in Sources */,
 				FD0A80EF1F6BE369007565AB /* PassageDetailsCategory.swift in Sources */,
 				FD1000061F6BAEF200281FD0 /* DisplayName.swift in Sources */,
 				FD0A80E71F6BDA37007565AB /* Option.swift in Sources */,
-				0950BFDC1F6B02E300B76F2A /* ViewController.swift in Sources */,
 				FD0A80E51F6BD9EA007565AB /* QuestionText.swift in Sources */,
+				B0CD1CCC1F6C018500065FC2 /* ThemeManager.swift in Sources */,
+				B02AE30A1F6C095400B55B15 /* CategoriesOverviewViewController.swift in Sources */,
+				B02AE3071F6C070E00B55B15 /* CategoryOverviewCell.swift in Sources */,
 				0950BFDA1F6B02E300B76F2A /* AppDelegate.swift in Sources */,
 				FD0A80F11F6BE3D8007565AB /* PassageDetails.swift in Sources */,
 				FD1000021F6BABC600281FD0 /* Category.swift in Sources */,
@@ -340,14 +422,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0950BFDD1F6B02E300B76F2A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0950BFDE1F6B02E300B76F2A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0950BFE21F6B02E300B76F2A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -468,7 +542,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DHG6J45BG4;
-				INFOPLIST_FILE = "A-Lang/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/../../Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.moldedbits.A-Lang";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -483,7 +557,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DHG6J45BG4;
-				INFOPLIST_FILE = "A-Lang/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/../../Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.moldedbits.A-Lang";
 				PRODUCT_NAME = "$(TARGET_NAME)";

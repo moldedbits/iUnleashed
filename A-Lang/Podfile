@@ -10,6 +10,23 @@ pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/RemoteConfig'
 pod 'Firebase/Auth'
+pod 'expanding-collection', '~> 1.0.3'
+pod 'EasyTipView', '~> 1.0.2'
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
+pod 'ActiveLabel'
+pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+pod 'FontAwesome.swift'
 pod 'ObjectMapper'
 
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        if target.name == "CKWaveCollectionViewTransition" || target.name == "EasyTipView" || target.name == "Spring" || target.name == "ActiveLabel" || target.name == "ChameleonFramework" || target.name == "FontAwesome.swift" || target.name == "FontAwesome_swift"
+            puts target
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '3.2'
+            end
+        end
+    end
 end
