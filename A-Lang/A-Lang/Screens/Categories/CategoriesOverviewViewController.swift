@@ -12,10 +12,17 @@ import expanding_collection
 class CategoriesOverviewViewController: ExpandingViewController {
 
     override func viewDidLoad() {
-        itemSize = CGSize(width: 214, height: 264)
+        itemSize = CGSize(width: ThemeManager.cardSize, height: ThemeManager.cardSize)
         super.viewDidLoad()
 
         collectionView?.register(CategoryOverviewCell.nib(), forCellWithReuseIdentifier: String(describing: CategoryOverviewCell.self))
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.navigationBar.isHidden = true
+        view.backgroundColor = ThemeManager.ThemeColor.whiteDark
     }
 }
 

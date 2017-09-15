@@ -12,6 +12,8 @@ import FontAwesome_swift
 
 struct ThemeManager {
 
+    static let cardSize = UIScreen.main.bounds.width / 1.5
+
     struct ThemeColor {
         static let whiteDark = FlatWhiteDark()
         static let whiteDarkContrast = ContrastColorOf(FlatWhiteDark(), returnFlat: true)
