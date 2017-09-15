@@ -24,7 +24,7 @@
 		0950BFE01F6B02E300B76F2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0950BFE31F6B02E300B76F2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0950BFE51F6B02E300B76F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2DF0BEF04719A31D25DAD2E8 /* Pods_A_Lang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Lang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DC75185A0B76498D6D6210 /* Pods-A-Lang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Lang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang.debug.xcconfig"; sourceTree = "<group>"; };
 		E6A3DA066605484BBECF3F6F /* Pods-A-Lang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Lang.release.xcconfig"; path = "Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,15 +63,47 @@
 		0950BFD81F6B02E300B76F2A /* A-Lang */ = {
 			isa = PBXGroup;
 			children = (
-				0950BFD91F6B02E300B76F2A /* AppDelegate.swift */,
-				0950BFDB1F6B02E300B76F2A /* ViewController.swift */,
-				0950BFDD1F6B02E300B76F2A /* Main.storyboard */,
-				0950BFE01F6B02E300B76F2A /* Assets.xcassets */,
-				0950BFE21F6B02E300B76F2A /* LaunchScreen.storyboard */,
-				0950BFE51F6B02E300B76F2A /* Info.plist */,
-				0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */,
+				09B17F1C1F6BA75100B38993 /* NetworkLayers */,
+				09B17F1B1F6BA73900B38993 /* ViewControllers */,
+				09B17F1A1F6BA72600B38993 /* XIB's */,
+				09B17F191F6BA70500B38993 /* SupportingFiles */,
 			);
 			path = "A-Lang";
+			sourceTree = "<group>";
+		};
+		09B17F191F6BA70500B38993 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */,
+				0950BFE51F6B02E300B76F2A /* Info.plist */,
+				0950BFE01F6B02E300B76F2A /* Assets.xcassets */,
+				0950BFD91F6B02E300B76F2A /* AppDelegate.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		09B17F1A1F6BA72600B38993 /* XIB's */ = {
+			isa = PBXGroup;
+			children = (
+				0950BFDD1F6B02E300B76F2A /* Main.storyboard */,
+				0950BFE21F6B02E300B76F2A /* LaunchScreen.storyboard */,
+			);
+			path = "XIB's";
+			sourceTree = "<group>";
+		};
+		09B17F1B1F6BA73900B38993 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0950BFDB1F6B02E300B76F2A /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		09B17F1C1F6BA75100B38993 /* NetworkLayers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkLayers;
 			sourceTree = "<group>";
 		};
 		2C48CEFC2E0B3D8E2FCF353D /* Pods */ = {
