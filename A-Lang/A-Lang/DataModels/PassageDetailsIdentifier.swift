@@ -8,20 +8,21 @@
 
 import Foundation
 
-struct PassageDetailsIdentifier: Codable {
-    var difficulty: String?
-    var displayName: DisplayName?
-    var passageText: PassageText?
-    var questions: [Question]?
-    var sentences: [Sentence]?
-    
-    
-    enum CodingKeys: String, CodingKey {
-        
-        case difficulty
-        case displayName = "display_name"
-        case passageText = "passage_text"
-        case questions
-        case sentences
-    }
-}
+//struct PassageDetailsIdentifier: Codable {
+//    var difficulty: String?
+//    var displayName: DisplayName?
+//    var passageText: PassageText?
+//    var questions: [Question]?
+//    var sentences: [Sentence]?
+//    
+//    
+//    enum CodingKeys: String, CodingKey {
+//        
+//        case difficulty
+//        case displayName = "display_name"
+//        case passageText = "passage_text"
+//        case questions
+//        case sentences
+//    }
+//}
+

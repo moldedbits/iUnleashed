@@ -16,6 +16,7 @@ pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3
 pod 'ActiveLabel'
 pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 pod 'FontAwesome.swift'
+pod 'ObjectMapper'
 
 end
 

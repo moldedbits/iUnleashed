@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import ObjectMapper
 
 enum Child: String {
     case categories = "categories"
@@ -19,35 +20,60 @@ enum Child: String {
 
 class APIManager {
     
-    static let defaultInstance = APIManager()
+    static let shared = APIManager()
     
     var ref = Database.database().reference()
     var remoteConfig: RemoteConfig!
     fileprivate var _refHandle: DatabaseHandle!
     fileprivate var _authHandle: AuthStateDidChangeListenerHandle!
     
+    // MARK: Providers categories and their names for Category Screen
     func getCategories(completion: (([Category]) -> ())? = nil) {
         ref.child(Child.categories.rawValue).observe(.value) { snapshot in
-            
             var categories: [Category] = []
             guard let data = snapshot.value as? [String: AnyObject] else {
                 return
             }
-            for value in data.values {
-                guard let categoryName = (value as? [String : String])?.values.first else { continue }
+            
+            for categoryData in data.values {
+                guard let unwrappedData = categoryData as? [String: Any] else { continue }
+                guard let category = Mapper<Category>().map(JSON: unwrappedData) else { continue }
                 
-                let categoryData: Category = Category(name: categoryName)
-                categories.append(categoryData)
+                categories.append(category)
             }
+            
             completion?(categories)
         }
     }
     
     func getPassages() {
         ref.child(Child.passages.rawValue).observe(.value) { snapshot in
-            for passage in snapshot.children {
-                // TODO: Map this data to passage model
+            var categories: [Category] = []
+            guard let data = snapshot.value as? [String: AnyObject] else {
+                return
             }
+            for key in data.keys {
+                guard let value = data[key] as? [[String : AnyObject]] else { continue }
+                
+                let passages = Mapper<Passage>().mapArray(JSONArray: value)
+                let category = Category(JSON: [:])!
+                category.passages = passages
+                category.name = key
+                categories.append(category)
+            }
+        }
+    }
+    
+    // MARK: Providers all the basic passages information for a particular category
+    func getPassagesForCategory(_ name: String, completion: (([Passage]) -> ())? = nil) {
+        ref.child(Child.passages.rawValue).child(name).observe(.value) { snapshot in
+            var passages: [Passage] = []
+            guard let data = snapshot.value as? [[String: AnyObject]] else {
+                return
+            }
+            
+            passages = Mapper<Passage>().mapArray(JSONArray: data)
+            completion?(passages)
         }
     }
     

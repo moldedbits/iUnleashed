@@ -1,5 +1,5 @@
 //
-//  Passage.swift
+//  PassageIdentifier.swift
 //  A-Lang
 //
 //  Created by sumit saini on 15/09/17.
@@ -7,12 +7,19 @@
 //
 
 import Foundation
+import ObjectMapper
 
-struct Passage: Codable {
+class Passage: Mappable {
     
-    var identifier: [PasssageCategory]?
+    var difficulty: String?
+    var displayName: DisplayName?
     
-    enum CodingKeys: String, CodingKey {
-        case identifier
+    required convenience init?(map : Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        difficulty <- map["difficulty"]
+        displayName <- map["display_name"]
     }
 }
