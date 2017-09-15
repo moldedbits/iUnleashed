@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Category: Codable {
+class Category {
     
-    var identifier: [CategoryIdentifier]?
+    var name: String
     
-    enum CodingKeys: String, CodingKey {
-        case identifier
+    init(name: String) {
+        self.name = name
     }
 }
