@@ -34,7 +34,7 @@ class APIManager {
     func getCategories(completion: (([Category]) -> ())? = nil) {
         ref.child(Child.categories).observe(.value) { snapshot in
             var categories: [Category] = []
-            guard let data = snapshot.value as? [String: AnyObject] else {
+            guard let data = snapshot.value as? [String: Any] else {
                 return
             }
             
@@ -49,29 +49,11 @@ class APIManager {
         }
     }
     
-//    func getPassages() {
-//        ref.child(Child.passages.rawValue).observe(.value) { snapshot in
-//            var categories: [Category] = []
-//            guard let data = snapshot.value as? [String: AnyObject] else {
-//                return
-//            }
-//            for key in data.keys {
-//                guard let value = data[key] as? [[String : AnyObject]] else { continue }
-//
-//                let passages = Mapper<Passage>().mapArray(JSONArray: value)
-//                let category = Category(JSON: [:])!
-//                category.passages = passages
-//                category.name = key
-//                categories.append(category)
-//            }
-//        }
-//    }
-    
     // MARK: Providers all the basic passages information for a particular category
     func getPassagesForCategory(_ name: String, completion: (([Passage]) -> ())? = nil) {
         ref.child(Child.passages).child(name).observe(.value) { snapshot in
             var passages: [Passage] = []
-            guard let data = snapshot.value as? [[String: AnyObject]] else {
+            guard let data = snapshot.value as? [[String: Any]] else {
                 return
             }
             
@@ -80,26 +62,43 @@ class APIManager {
         }
     }
     
-    func getPassageDetails() {
-        ref.child(Child.passageDetails).observe(.value) { snapshot in
-            for passageDetail in snapshot.children {
-                // TODO: Map this data to passageDetails model
-            }
-        }
-    }
-    
     // MARK: Provider pessage text based on a passage id and category name
-    func getPassageText(for id: String, in category: String, completion: ((PassageText) -> ())? = nil) {
+    func getPassageText(for id: String, in category: String, completion: ((BilingualText) -> ())? = nil) {
         ref.child(Child.passageDetails).child(category).child(id).child(Child.passageText).observe(.value) { snapshot in
             guard let data = snapshot.value as? [String: Any] else {
                 return
             }
             
-            guard let passageText = Mapper<PassageText>().map(JSON: data) else { return }
+            guard let passageText = Mapper<BilingualText>().map(JSON: data) else { return }
             completion?(passageText)
         }
     }
     
+    // MARK: Provider pessage text based on a passage id and category name
+    func getPassageSentences(for id: String, in category: String, completion: (([BilingualText]) -> ())? = nil) {
+        ref.child(Child.passageDetails).child(category).child(id).child(Child.passageSentences).observe(.value) { snapshot in
+            var sentences: [BilingualText] = []
+            guard let data = snapshot.value as? [[String: Any]] else {
+                return
+            }
+            
+            sentences = Mapper<BilingualText>().mapArray(JSONArray: data)
+            completion?(sentences)
+        }
+    }
+    
+    // MARK: Provider pessage text based on a passage id and category name
+    func getPassageQuestions(for id: String, in category: String, completion: (([Question]) -> ())? = nil) {
+        ref.child(Child.passageDetails).child(category).child(id).child(Child.passageQuestions).observe(.value) { snapshot in
+            var questions: [Question] = []
+            guard let data = snapshot.value as? [[String: Any]] else {
+                return
+            }
+            
+            questions = Mapper<Question>().mapArray(JSONArray: data)
+            completion?(questions)
+        }
+    }
 }
 
 
