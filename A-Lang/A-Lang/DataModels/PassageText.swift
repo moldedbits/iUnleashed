@@ -7,14 +7,19 @@
 //
 
 import Foundation
+import ObjectMapper
 
-struct PassageText: Codable {
+class PassageText: Mappable {
     
     var english: String?
     var spanish: String?
     
-    enum CodingKeys: String, CodingKey {
-        case english
-        case spanish
+    required convenience init?(map : Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        english <- map["english"]
+        spanish <- map["spanish"]
     }
 }

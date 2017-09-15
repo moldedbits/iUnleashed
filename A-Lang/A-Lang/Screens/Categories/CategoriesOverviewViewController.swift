@@ -14,7 +14,8 @@ class CategoriesOverviewViewController: ExpandingViewController {
     override func viewDidLoad() {
         itemSize = CGSize(width: ThemeManager.cardSize, height: ThemeManager.cardSize)
         super.viewDidLoad()
-
+        
+        APIManager.shared.getPassageText(for: "0", in: "four")
         collectionView?.register(CategoryOverviewCell.nib(), forCellWithReuseIdentifier: String(describing: CategoryOverviewCell.self))
     }
 
