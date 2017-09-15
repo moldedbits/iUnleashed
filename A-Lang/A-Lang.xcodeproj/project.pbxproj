@@ -13,6 +13,7 @@
 		0950BFE11F6B02E300B76F2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0950BFE01F6B02E300B76F2A /* Assets.xcassets */; };
 		0950BFE41F6B02E300B76F2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0950BFE21F6B02E300B76F2A /* LaunchScreen.storyboard */; };
 		0950BFEC1F6B083E00B76F2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */; };
+		09ADE0B51F6BB0B4006EEB7E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADE0B41F6BB0B4006EEB7E /* APIManager.swift */; };
 		F4AA36CA7D866A6E4117F0E4 /* Pods_A_Lang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF0BEF04719A31D25DAD2E8 /* Pods_A_Lang.framework */; };
 		FD0A80DF1F6BD8BD007565AB /* PassageCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A80DE1F6BD8BD007565AB /* PassageCategory.swift */; };
 		FD0A80E11F6BD922007565AB /* Passage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A80E01F6BD922007565AB /* Passage.swift */; };
@@ -39,6 +40,7 @@
 		0950BFE31F6B02E300B76F2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0950BFE51F6B02E300B76F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		09ADE0B41F6BB0B4006EEB7E /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		2DF0BEF04719A31D25DAD2E8 /* Pods_A_Lang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Lang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DC75185A0B76498D6D6210 /* Pods-A-Lang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Lang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang.debug.xcconfig"; sourceTree = "<group>"; };
 		E6A3DA066605484BBECF3F6F /* Pods-A-Lang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Lang.release.xcconfig"; path = "Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		0950BFD81F6B02E300B76F2A /* A-Lang */ = {
 			isa = PBXGroup;
 			children = (
+				0950BFE51F6B02E300B76F2A /* Info.plist */,
 				FD1000001F6BA87700281FD0 /* DataModels */,
 				09B17F1C1F6BA75100B38993 /* NetworkLayers */,
 				09B17F1B1F6BA73900B38993 /* ViewControllers */,
@@ -104,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */,
-				0950BFE51F6B02E300B76F2A /* Info.plist */,
 				0950BFE01F6B02E300B76F2A /* Assets.xcassets */,
 				0950BFD91F6B02E300B76F2A /* AppDelegate.swift */,
 			);
@@ -131,6 +133,7 @@
 		09B17F1C1F6BA75100B38993 /* NetworkLayers */ = {
 			isa = PBXGroup;
 			children = (
+				09ADE0B41F6BB0B4006EEB7E /* APIManager.swift */,
 			);
 			path = NetworkLayers;
 			sourceTree = "<group>";
@@ -250,9 +253,19 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang-resources.sh",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseTwitterAuthUI.bundle,
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -266,12 +279,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09ADE0B51F6BB0B4006EEB7E /* APIManager.swift in Sources */,
 				FD0A80EB1F6BE1BA007565AB /* PassageText.swift in Sources */,
 				FD1000041F6BAC6F00281FD0 /* CategoryIdentifier.swift in Sources */,
 				FD0A80E31F6BD98D007565AB /* Sentence.swift in Sources */,
