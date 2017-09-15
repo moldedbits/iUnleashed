@@ -15,7 +15,6 @@
 		B02AE3071F6C070E00B55B15 /* CategoryOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02AE3051F6C070E00B55B15 /* CategoryOverviewCell.swift */; };
 		B02AE3081F6C070E00B55B15 /* CategoryOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02AE3061F6C070E00B55B15 /* CategoryOverviewCell.xib */; };
 		B02AE30A1F6C095400B55B15 /* CategoriesOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02AE3091F6C095400B55B15 /* CategoriesOverviewViewController.swift */; };
-		B09F1D3B1F6BBF3E009BC4BF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B09F1D3A1F6BBF3E009BC4BF /* Info.plist */; };
 		B0CD1CCC1F6C018500065FC2 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD1CCB1F6C018500065FC2 /* ThemeManager.swift */; };
 		B0CD1CCE1F6C01E800065FC2 /* UIView+nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD1CCD1F6C01E800065FC2 /* UIView+nib.swift */; };
 		F4AA36CA7D866A6E4117F0E4 /* Pods_A_Lang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF0BEF04719A31D25DAD2E8 /* Pods_A_Lang.framework */; };
@@ -34,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		091F9EBE1F6C34D60026CE2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0950BFD61F6B02E300B76F2A /* A-Lang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A-Lang.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0950BFD91F6B02E300B76F2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0950BFE01F6B02E300B76F2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,7 +45,6 @@
 		B02AE3051F6C070E00B55B15 /* CategoryOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOverviewCell.swift; sourceTree = "<group>"; };
 		B02AE3061F6C070E00B55B15 /* CategoryOverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryOverviewCell.xib; sourceTree = "<group>"; };
 		B02AE3091F6C095400B55B15 /* CategoriesOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesOverviewViewController.swift; sourceTree = "<group>"; };
-		B09F1D3A1F6BBF3E009BC4BF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../../Info.plist; sourceTree = "<group>"; };
 		B0CD1CCB1F6C018500065FC2 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		B0CD1CCD1F6C01E800065FC2 /* UIView+nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+nib.swift"; path = "A-Lang/Theme/UIView+nib.swift"; sourceTree = SOURCE_ROOT; };
 		E6A3DA066605484BBECF3F6F /* Pods-A-Lang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Lang.release.xcconfig"; path = "Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,7 +109,7 @@
 		09B17F191F6BA70500B38993 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				B09F1D3A1F6BBF3E009BC4BF /* Info.plist */,
+				091F9EBE1F6C34D60026CE2B /* Info.plist */,
 				0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */,
 				0950BFE01F6B02E300B76F2A /* Assets.xcassets */,
 				0950BFD91F6B02E300B76F2A /* AppDelegate.swift */,
@@ -301,7 +300,6 @@
 				B02AE3081F6C070E00B55B15 /* CategoryOverviewCell.xib in Resources */,
 				0950BFEC1F6B083E00B76F2A /* GoogleService-Info.plist in Resources */,
 				0950BFE11F6B02E300B76F2A /* Assets.xcassets in Resources */,
-				B09F1D3B1F6BBF3E009BC4BF /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,7 +540,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DHG6J45BG4;
-				INFOPLIST_FILE = "$(SRCROOT)/../../Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/A-Lang/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.moldedbits.A-Lang";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -557,7 +555,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DHG6J45BG4;
-				INFOPLIST_FILE = "$(SRCROOT)/../../Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/A-Lang/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.moldedbits.A-Lang";
 				PRODUCT_NAME = "$(TARGET_NAME)";
