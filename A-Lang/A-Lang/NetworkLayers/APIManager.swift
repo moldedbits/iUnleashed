@@ -18,18 +18,28 @@ enum Child: String {
 }
 
 class APIManager {
+    
+    static let defaultInstance = APIManager()
+    
     var ref = Database.database().reference()
     var remoteConfig: RemoteConfig!
     fileprivate var _refHandle: DatabaseHandle!
     fileprivate var _authHandle: AuthStateDidChangeListenerHandle!
     
-    var categories: [DataSnapshot]! = []
-    
-    func getCategories() {
+    func getCategories(completion: (([Category]) -> ())? = nil) {
         ref.child(Child.categories.rawValue).observe(.value) { snapshot in
-            for category in snapshot.children {
-                // TODO: Map this data to category model
+            
+            var categories: [Category] = []
+            guard let data = snapshot.value as? [String: AnyObject] else {
+                return
             }
+            for value in data.values {
+                guard let categoryName = (value as? [String : String])?.values.first else { continue }
+                
+                let categoryData: Category = Category(name: categoryName)
+                categories.append(categoryData)
+            }
+            completion?(categories)
         }
     }
     
