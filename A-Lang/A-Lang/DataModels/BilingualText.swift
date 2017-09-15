@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class PassageText: Mappable {
+class BilingualText: Mappable {
     
     var english: String?
     var spanish: String?

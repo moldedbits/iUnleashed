@@ -12,7 +12,7 @@ import ObjectMapper
 class Passage: Mappable {
     
     var difficulty: String?
-    var displayName: DisplayName?
+    var displayName: BilingualText?
     
     required convenience init?(map : Map) {
         self.init()

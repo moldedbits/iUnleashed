@@ -7,18 +7,23 @@
 //
 
 import Foundation
+import ObjectMapper
 
-struct Question: Codable {
+class Question: Mappable {
     
     var answerText: String?
-    var questionText: QuestionText?
-    var options: [Option]?
+    var questionText: BilingualText?
+    var options: [String]?
     var type: String?
     
-    enum CodingKeys: String, CodingKey {
-        case questionText = "question_text"
-        case options
-        case type
-        case answerText = "answer_text"
+    required convenience init?(map : Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        answerText <- map["answer_text"]
+        questionText <- map["question_text"]
+        options <- map["options"]
+        type <- map["type"]
     }
 }
