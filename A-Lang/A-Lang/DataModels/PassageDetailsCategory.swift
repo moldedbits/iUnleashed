@@ -8,11 +8,12 @@
 
 import Foundation
 
-struct PasssageDetailsCategory: Codable {
-    
-    var identifier: [PassageDetailsIdentifier]?
-    
-    enum CodingKeys: String, CodingKey {
-        case identifier
-    }
-}
+//struct PasssageDetailsCategory: Codable {
+//    
+//    var identifier: [PassageDetailsIdentifier]?
+//    
+//    enum CodingKeys: String, CodingKey {
+//        case identifier
+//    }
+//}
+

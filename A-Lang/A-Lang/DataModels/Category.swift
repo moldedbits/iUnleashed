@@ -7,12 +7,19 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class Category {
+class Category: Mappable {
     
-    var name: String
+    var name: String?
+    var passages: [Passage]?
     
-    init(name: String) {
-        self.name = name
+    required convenience init?(map : Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        name <- map["name"]
+        passages <- map["passages"]
     }
 }

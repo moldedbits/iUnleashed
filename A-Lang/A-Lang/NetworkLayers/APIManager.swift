@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import ObjectMapper
 
 enum Child: String {
     case categories = "categories"
@@ -19,7 +20,7 @@ enum Child: String {
 
 class APIManager {
     
-    static let defaultInstance = APIManager()
+    static let shared = APIManager()
     
     var ref = Database.database().reference()
     var remoteConfig: RemoteConfig!
@@ -28,26 +29,38 @@ class APIManager {
     
     func getCategories(completion: (([Category]) -> ())? = nil) {
         ref.child(Child.categories.rawValue).observe(.value) { snapshot in
-            
             var categories: [Category] = []
             guard let data = snapshot.value as? [String: AnyObject] else {
                 return
             }
-            for value in data.values {
-                guard let categoryName = (value as? [String : String])?.values.first else { continue }
+            
+            for categoryData in data.values {
+                guard let unwrappedData = categoryData as? [String: Any] else { continue }
+                guard let category = Mapper<Category>().map(JSON: unwrappedData) else { continue }
                 
-                let categoryData: Category = Category(name: categoryName)
-                categories.append(categoryData)
+                categories.append(category)
             }
+            
             completion?(categories)
         }
     }
     
     func getPassages() {
         ref.child(Child.passages.rawValue).observe(.value) { snapshot in
-            for passage in snapshot.children {
-                // TODO: Map this data to passage model
+            var categories: [Category] = []
+            guard let data = snapshot.value as? [String: AnyObject] else {
+                return
             }
+            for key in data.keys {
+                guard let value = data[key] as? [[String : AnyObject]] else { continue }
+                
+                let passages = Mapper<Passage>().mapArray(JSONArray: value)
+                let category = Category(JSON: [:])!
+                category.passages = passages
+                category.name = key
+                categories.append(category)
+            }
+            
         }
     }
     

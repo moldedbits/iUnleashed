@@ -16,7 +16,6 @@
 		09ADE0B51F6BB0B4006EEB7E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADE0B41F6BB0B4006EEB7E /* APIManager.swift */; };
 		F4AA36CA7D866A6E4117F0E4 /* Pods_A_Lang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF0BEF04719A31D25DAD2E8 /* Pods_A_Lang.framework */; };
 		FD0A80DF1F6BD8BD007565AB /* PassageCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A80DE1F6BD8BD007565AB /* PassageCategory.swift */; };
-		FD0A80E11F6BD922007565AB /* Passage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A80E01F6BD922007565AB /* Passage.swift */; };
 		FD0A80E31F6BD98D007565AB /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A80E21F6BD98D007565AB /* Sentence.swift */; };
 		FD0A80E51F6BD9EA007565AB /* QuestionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A80E41F6BD9EA007565AB /* QuestionText.swift */; };
 		FD0A80E71F6BDA37007565AB /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A80E61F6BDA37007565AB /* Option.swift */; };
@@ -26,9 +25,8 @@
 		FD0A80EF1F6BE369007565AB /* PassageDetailsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A80EE1F6BE369007565AB /* PassageDetailsCategory.swift */; };
 		FD0A80F11F6BE3D8007565AB /* PassageDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A80F01F6BE3D8007565AB /* PassageDetails.swift */; };
 		FD1000021F6BABC600281FD0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1000011F6BABC600281FD0 /* Category.swift */; };
-		FD1000041F6BAC6F00281FD0 /* CategoryIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1000031F6BAC6F00281FD0 /* CategoryIdentifier.swift */; };
 		FD1000061F6BAEF200281FD0 /* DisplayName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1000051F6BAEF200281FD0 /* DisplayName.swift */; };
-		FD1000081F6BB0BE00281FD0 /* PassageIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1000071F6BB0BE00281FD0 /* PassageIdentifier.swift */; };
+		FD1000081F6BB0BE00281FD0 /* Passage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1000071F6BB0BE00281FD0 /* Passage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +43,6 @@
 		30DC75185A0B76498D6D6210 /* Pods-A-Lang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Lang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang.debug.xcconfig"; sourceTree = "<group>"; };
 		E6A3DA066605484BBECF3F6F /* Pods-A-Lang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Lang.release.xcconfig"; path = "Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang.release.xcconfig"; sourceTree = "<group>"; };
 		FD0A80DE1F6BD8BD007565AB /* PassageCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageCategory.swift; sourceTree = "<group>"; };
-		FD0A80E01F6BD922007565AB /* Passage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passage.swift; sourceTree = "<group>"; };
 		FD0A80E21F6BD98D007565AB /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		FD0A80E41F6BD9EA007565AB /* QuestionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionText.swift; sourceTree = "<group>"; };
 		FD0A80E61F6BDA37007565AB /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
@@ -55,9 +52,8 @@
 		FD0A80EE1F6BE369007565AB /* PassageDetailsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageDetailsCategory.swift; sourceTree = "<group>"; };
 		FD0A80F01F6BE3D8007565AB /* PassageDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageDetails.swift; sourceTree = "<group>"; };
 		FD1000011F6BABC600281FD0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		FD1000031F6BAC6F00281FD0 /* CategoryIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIdentifier.swift; sourceTree = "<group>"; };
 		FD1000051F6BAEF200281FD0 /* DisplayName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayName.swift; sourceTree = "<group>"; };
-		FD1000071F6BB0BE00281FD0 /* PassageIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageIdentifier.swift; sourceTree = "<group>"; };
+		FD1000071F6BB0BE00281FD0 /* Passage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,11 +155,9 @@
 			isa = PBXGroup;
 			children = (
 				FD1000011F6BABC600281FD0 /* Category.swift */,
-				FD1000031F6BAC6F00281FD0 /* CategoryIdentifier.swift */,
 				FD1000051F6BAEF200281FD0 /* DisplayName.swift */,
-				FD1000071F6BB0BE00281FD0 /* PassageIdentifier.swift */,
+				FD1000071F6BB0BE00281FD0 /* Passage.swift */,
 				FD0A80DE1F6BD8BD007565AB /* PassageCategory.swift */,
-				FD0A80E01F6BD922007565AB /* Passage.swift */,
 				FD0A80E21F6BD98D007565AB /* Sentence.swift */,
 				FD0A80E41F6BD9EA007565AB /* QuestionText.swift */,
 				FD0A80E61F6BDA37007565AB /* Option.swift */,
@@ -254,11 +248,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseTwitterAuthUI.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseTwitterAuthUI.bundle,
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
@@ -281,6 +275,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -289,6 +284,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -325,7 +321,6 @@
 			files = (
 				09ADE0B51F6BB0B4006EEB7E /* APIManager.swift in Sources */,
 				FD0A80EB1F6BE1BA007565AB /* PassageText.swift in Sources */,
-				FD1000041F6BAC6F00281FD0 /* CategoryIdentifier.swift in Sources */,
 				FD0A80E31F6BD98D007565AB /* Sentence.swift in Sources */,
 				FD0A80EF1F6BE369007565AB /* PassageDetailsCategory.swift in Sources */,
 				FD1000061F6BAEF200281FD0 /* DisplayName.swift in Sources */,
@@ -334,12 +329,11 @@
 				FD0A80E51F6BD9EA007565AB /* QuestionText.swift in Sources */,
 				0950BFDA1F6B02E300B76F2A /* AppDelegate.swift in Sources */,
 				FD0A80F11F6BE3D8007565AB /* PassageDetails.swift in Sources */,
-				FD0A80E11F6BD922007565AB /* Passage.swift in Sources */,
 				FD1000021F6BABC600281FD0 /* Category.swift in Sources */,
 				FD0A80ED1F6BE269007565AB /* PassageDetailsIdentifier.swift in Sources */,
 				FD0A80E91F6BDAB9007565AB /* Question.swift in Sources */,
 				FD0A80DF1F6BD8BD007565AB /* PassageCategory.swift in Sources */,
-				FD1000081F6BB0BE00281FD0 /* PassageIdentifier.swift in Sources */,
+				FD1000081F6BB0BE00281FD0 /* Passage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

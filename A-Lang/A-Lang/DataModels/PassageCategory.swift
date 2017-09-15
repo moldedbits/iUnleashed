@@ -6,13 +6,14 @@
 //  Copyright © 2017 moldedbits. All rights reserved.
 //
 
-import Foundation
+//import Foundation
+//
+//struct PasssageCategory {
+//    
+//    var identifier: [PassageIdentifier]?
+//    
+//    enum CodingKeys: String, CodingKey {
+//        case identifier
+//    }
+//}
 
-struct PasssageCategory: Codable {
-    
-    var identifier: [PassageIdentifier]?
-    
-    enum CodingKeys: String, CodingKey {
-        case identifier
-    }
-}
