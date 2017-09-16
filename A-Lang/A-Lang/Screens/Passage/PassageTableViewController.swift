@@ -48,19 +48,23 @@ class PassageTableViewController: UITableViewController {
     
     func configureNavigationItems() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Take Quiz >", style: .plain, target: self, action: #selector(goToQuizScreen))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<", style: .plain, target: self, action: #selector(pop))
+        navigationItem.hidesBackButton = true
         title = viewModel.passage.displayName?.english
     }
     
     @objc func goToQuizScreen() {
-        
-        let passageDetailViewModel = PassageDetailViewModel(with: viewModel.passages[indexPath.row])
-        let screen = PassageTableViewController(with: passageDetailViewModel)
-        navigationController?.pushViewController(screen, animated: true)
         SVProgressHUD.show()
         APIManager.shared.getPassageQuestions(for: viewModel.passage.id, in: viewModel.passage.categoryName) { questions in
-            let quizViewController = QuizTableViewController(with: )
-            navigationController?.pushViewController(quizViewController, animated: true)
+            SVProgressHUD.dismiss()
+            let viewModel = QuizViewModel(with: questions)
+            let quizViewController = QuizTableViewController(with: viewModel)
+            self.navigationController?.pushViewController(quizViewController, animated: true)
         }
+    }
+
+    @objc func pop() {
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Table view data source

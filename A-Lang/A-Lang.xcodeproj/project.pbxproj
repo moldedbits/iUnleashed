@@ -33,6 +33,10 @@
 		B04F2DD51F6D8693009C75C9 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F2DD41F6D8693009C75C9 /* QuizViewModel.swift */; };
 		B04F2DD81F6D98D2009C75C9 /* QuizMultipleChoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F2DD61F6D98D2009C75C9 /* QuizMultipleChoiceCell.swift */; };
 		B04F2DD91F6D98D2009C75C9 /* QuizMultipleChoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04F2DD71F6D98D2009C75C9 /* QuizMultipleChoiceCell.xib */; };
+		B04F2DDF1F6DB02D009C75C9 /* QuizQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F2DDD1F6DB02D009C75C9 /* QuizQuestionCell.swift */; };
+		B04F2DE01F6DB02D009C75C9 /* QuizQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04F2DDE1F6DB02D009C75C9 /* QuizQuestionCell.xib */; };
+		B04F2DE31F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F2DE11F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.swift */; };
+		B04F2DE41F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04F2DE21F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.xib */; };
 		B059C3AF1F6C98AF0023C785 /* PassageOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B059C3AD1F6C98AF0023C785 /* PassageOverview.swift */; };
 		B059C3B01F6C98AF0023C785 /* PassageOverview.xib in Resources */ = {isa = PBXBuildFile; fileRef = B059C3AE1F6C98AF0023C785 /* PassageOverview.xib */; };
 		B0CD1CCC1F6C018500065FC2 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD1CCB1F6C018500065FC2 /* ThemeManager.swift */; };
@@ -75,6 +79,10 @@
 		B04F2DD41F6D8693009C75C9 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		B04F2DD61F6D98D2009C75C9 /* QuizMultipleChoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMultipleChoiceCell.swift; sourceTree = "<group>"; };
 		B04F2DD71F6D98D2009C75C9 /* QuizMultipleChoiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizMultipleChoiceCell.xib; sourceTree = "<group>"; };
+		B04F2DDD1F6DB02D009C75C9 /* QuizQuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestionCell.swift; sourceTree = "<group>"; };
+		B04F2DDE1F6DB02D009C75C9 /* QuizQuestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizQuestionCell.xib; sourceTree = "<group>"; };
+		B04F2DE11F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSubjectiveTableViewCell.swift; sourceTree = "<group>"; };
+		B04F2DE21F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizSubjectiveTableViewCell.xib; sourceTree = "<group>"; };
 		B059C3AD1F6C98AF0023C785 /* PassageOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageOverview.swift; sourceTree = "<group>"; };
 		B059C3AE1F6C98AF0023C785 /* PassageOverview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassageOverview.xib; sourceTree = "<group>"; };
 		B0CD1CCB1F6C018500065FC2 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
@@ -220,10 +228,37 @@
 		B04F2DD31F6D66A2009C75C9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B04F2DDB1F6DAF82009C75C9 /* subjective */,
+				B04F2DDA1F6DAF6C009C75C9 /* multi choice */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B04F2DDA1F6DAF6C009C75C9 /* multi choice */ = {
+			isa = PBXGroup;
+			children = (
 				B04F2DD61F6D98D2009C75C9 /* QuizMultipleChoiceCell.swift */,
 				B04F2DD71F6D98D2009C75C9 /* QuizMultipleChoiceCell.xib */,
 			);
-			path = Cells;
+			path = "multi choice";
+			sourceTree = "<group>";
+		};
+		B04F2DDB1F6DAF82009C75C9 /* subjective */ = {
+			isa = PBXGroup;
+			children = (
+				B04F2DE11F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.swift */,
+				B04F2DE21F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.xib */,
+			);
+			path = subjective;
+			sourceTree = "<group>";
+		};
+		B04F2DDC1F6DAF9E009C75C9 /* section header */ = {
+			isa = PBXGroup;
+			children = (
+				B04F2DDD1F6DB02D009C75C9 /* QuizQuestionCell.swift */,
+				B04F2DDE1F6DB02D009C75C9 /* QuizQuestionCell.xib */,
+			);
+			path = "section header";
 			sourceTree = "<group>";
 		};
 		B09F1D3E1F6BCC7C009BC4BF /* Categories */ = {
@@ -259,6 +294,7 @@
 		B09F1D411F6BCCBE009BC4BF /* Quiz */ = {
 			isa = PBXGroup;
 			children = (
+				B04F2DDC1F6DAF9E009C75C9 /* section header */,
 				B04F2DD31F6D66A2009C75C9 /* Cells */,
 				B04F2DD11F6D669E009C75C9 /* QuizTableViewController.swift */,
 				B04F2DD41F6D8693009C75C9 /* QuizViewModel.swift */,
@@ -364,7 +400,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04F2DE01F6DB02D009C75C9 /* QuizQuestionCell.xib in Resources */,
 				0950BFE41F6B02E300B76F2A /* LaunchScreen.storyboard in Resources */,
+				B04F2DE41F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.xib in Resources */,
 				B04F2DD91F6D98D2009C75C9 /* QuizMultipleChoiceCell.xib in Resources */,
 				B02AE3081F6C070E00B55B15 /* CategoryOverviewCell.xib in Resources */,
 				096037951F6D84F2001C5374 /* AppLaunchViewController.xib in Resources */,
@@ -492,9 +530,11 @@
 				096037891F6D5FC8001C5374 /* PassageTableViewCell.swift in Sources */,
 				0960378E1F6D61F2001C5374 /* PassageDetailViewModel.swift in Sources */,
 				B059C3AF1F6C98AF0023C785 /* PassageOverview.swift in Sources */,
+				B04F2DDF1F6DB02D009C75C9 /* QuizQuestionCell.swift in Sources */,
 				0950BFDA1F6B02E300B76F2A /* AppDelegate.swift in Sources */,
 				B04F2DD21F6D669E009C75C9 /* QuizTableViewController.swift in Sources */,
 				FD1000021F6BABC600281FD0 /* Category.swift in Sources */,
+				B04F2DE31F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.swift in Sources */,
 				FD0A80E91F6BDAB9007565AB /* Question.swift in Sources */,
 				096037971F6D8A1F001C5374 /* DelayUtil.swift in Sources */,
 				FD1000081F6BB0BE00281FD0 /* Passage.swift in Sources */,

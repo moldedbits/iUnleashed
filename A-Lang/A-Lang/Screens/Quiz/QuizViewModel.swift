@@ -12,7 +12,8 @@ struct QuizViewModel {
 
     var sectionModels: [QuizSectionModel] = []
 
-    init(with questions: [Question]) {
+    init(with questionsArray: [Question]) {
+        let questions = questionsArray + questionsArray + questionsArray + questionsArray
         var sectionModels = [QuizSectionModel]()
         for question in questions {
             var cellModels = [QuizAnswerCellModel]()
@@ -28,7 +29,7 @@ struct QuizViewModel {
                 }
             }
             let sectionItem = QuizSectionItem.question(question: question.questionText?.spanish ?? "- -", cellModels: cellModels)
-            let sectionModel = QuizSectionModel(with: sectionItem, type: question.questionType)
+            let sectionModel = QuizSectionModel(with: sectionItem, type: question.questionType, correctAnswer: question.answerText ?? "")
             sectionModels.append(sectionModel)
         }
 
@@ -41,13 +42,15 @@ class QuizSectionModel {
     var item: QuizSectionItem!
     var type: QuestionType!
     var userAnswer: String?
+    var correctAnswer: String?
 
-    convenience init(with item: QuizSectionItem, type: QuestionType, answer: String? = nil) {
+    convenience init(with item: QuizSectionItem, type: QuestionType, correctAnswer: String, answer: String? = nil) {
         self.init()
 
         userAnswer = answer
         self.item = item
         self.type = type
+        self.correctAnswer = correctAnswer
     }
 }
 

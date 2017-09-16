@@ -12,8 +12,8 @@ class QuizMultipleChoiceCell: UITableViewCell {
 
     @IBOutlet weak var selectionButton: UIButton! {
         didSet {
-            selectionButton.setImage(ThemeManager.fontAwesomeImage(fontAwesome: .circle, andSize: selectionButton.bounds.size), for: .selected)
-            selectionButton.setImage(ThemeManager.fontAwesomeImage(fontAwesome: .circleO, andSize: selectionButton.bounds.size), for: .selected)
+            selectionButton.setImage(ThemeManager.fontAwesomeImage(fontAwesome: .dotCircleO, andSize: selectionButton.bounds.size), for: .selected)
+            selectionButton.setImage(ThemeManager.fontAwesomeImage(fontAwesome: .circleO, andSize: selectionButton.bounds.size), for: .normal)
         }
     }
     @IBOutlet weak var optionLabel: UILabel!
