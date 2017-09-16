@@ -9,11 +9,13 @@
 import Foundation
 
 struct PassageDetailViewModel {
-    var passageText: String!
+//    var passageText: String!
     var sentences: [BilingualText]!
     var passage: Passage!
+    var cellModel: PassageDetailsCellModel?
     
     init(with passage: Passage) {
+        self.passage = passage
 //        passageText = passage.text
 //        sentences = passage.sentences
     }

@@ -11,14 +11,9 @@ import ActiveLabel
 
 class PassageTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
     @IBOutlet weak var passageTextLabel: ActiveLabel!
     
-    func configure(with model: PassageDetailViewModel) {
-        passageTextLabel.text = model.passageText
+    func configure(with model: PassageDetailsCellModel?) {
+        passageTextLabel.text = model?.passageText
     }
 }

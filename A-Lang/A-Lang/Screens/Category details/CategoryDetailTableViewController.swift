@@ -105,7 +105,9 @@ extension CategoryDetailTableViewController {
             }
         } else {// close cell
             updateTableView(forCell: cell, atIndexPath: indexPath, shouldOpen: false)
-            //TODO: Goto next screen
+            let passageDetailViewModel = PassageDetailViewModel(with: viewModel.passages[indexPath.row])
+            let screen = PassageTableViewController(with: passageDetailViewModel)
+            navigationController?.pushViewController(screen, animated: true)
         }
     }
 

@@ -13,8 +13,8 @@ struct PassageDetailsCellModel {
     var sentences: [BilingualText]!
     var passageText: String!
     
-    init(with sentences: [BilingualText], andPassageText text: String) {
+    init(with sentences: [BilingualText], andPassageText spanishText: String) {
         self.sentences = sentences
-        passageText = text
+        passageText = spanishText
     }
 }
