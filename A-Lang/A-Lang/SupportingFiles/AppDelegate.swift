@@ -26,15 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         // TODO:- find a better way
         APIManager.shared.getCategories { categories in
-            self.window?.rootViewController = UINavigationController(rootViewController: CategoriesOverviewViewController(with: CategoriesViewModel(with: categories)))// .dummy()))//
+            self.window?.rootViewController = UINavigationController(rootViewController: AppLaunchViewController())
+                //CategoriesOverviewViewController(with: CategoriesViewModel(with: categories)))// .dummy()))//
             self.window?.makeKeyAndVisible()
         }
 
         return true
     }
-    
-//    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-//        return FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication ?? "") ?? false
-//    }
 }
 

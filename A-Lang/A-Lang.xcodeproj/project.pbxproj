@@ -16,6 +16,9 @@
 		0960378C1F6D616A001C5374 /* PassageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960378B1F6D616A001C5374 /* PassageTableViewController.swift */; };
 		0960378E1F6D61F2001C5374 /* PassageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960378D1F6D61F2001C5374 /* PassageDetailViewModel.swift */; };
 		096037901F6D65EF001C5374 /* PassageDetailsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960378F1F6D65EF001C5374 /* PassageDetailsCellModel.swift */; };
+		096037941F6D84F2001C5374 /* AppLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096037921F6D84F2001C5374 /* AppLaunchViewController.swift */; };
+		096037951F6D84F2001C5374 /* AppLaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 096037931F6D84F2001C5374 /* AppLaunchViewController.xib */; };
+		096037971F6D8A1F001C5374 /* DelayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096037961F6D8A1F001C5374 /* DelayUtil.swift */; };
 		09ADE0B51F6BB0B4006EEB7E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADE0B41F6BB0B4006EEB7E /* APIManager.swift */; };
 		B02AE3071F6C070E00B55B15 /* CategoryOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02AE3051F6C070E00B55B15 /* CategoryOverviewCell.swift */; };
 		B02AE3081F6C070E00B55B15 /* CategoryOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02AE3061F6C070E00B55B15 /* CategoryOverviewCell.xib */; };
@@ -49,6 +52,9 @@
 		0960378B1F6D616A001C5374 /* PassageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageTableViewController.swift; sourceTree = "<group>"; };
 		0960378D1F6D61F2001C5374 /* PassageDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageDetailViewModel.swift; sourceTree = "<group>"; };
 		0960378F1F6D65EF001C5374 /* PassageDetailsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageDetailsCellModel.swift; sourceTree = "<group>"; };
+		096037921F6D84F2001C5374 /* AppLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchViewController.swift; sourceTree = "<group>"; };
+		096037931F6D84F2001C5374 /* AppLaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppLaunchViewController.xib; sourceTree = "<group>"; };
+		096037961F6D8A1F001C5374 /* DelayUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelayUtil.swift; path = "A-Lang/SupportingFiles/DelayUtil.swift"; sourceTree = SOURCE_ROOT; };
 		09ADE0B41F6BB0B4006EEB7E /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		2DF0BEF04719A31D25DAD2E8 /* Pods_A_Lang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Lang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DC75185A0B76498D6D6210 /* Pods-A-Lang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Lang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +132,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		096037911F6D84C2001C5374 /* AppLaunch */ = {
+			isa = PBXGroup;
+			children = (
+				096037921F6D84F2001C5374 /* AppLaunchViewController.swift */,
+				096037931F6D84F2001C5374 /* AppLaunchViewController.xib */,
+			);
+			path = AppLaunch;
+			sourceTree = "<group>";
+		};
 		09B17F191F6BA70500B38993 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +163,7 @@
 		09B17F1B1F6BA73900B38993 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				096037911F6D84C2001C5374 /* AppLaunch */,
 				B09F1D3E1F6BCC7C009BC4BF /* Categories */,
 				B09F1D3F1F6BCC84009BC4BF /* Category details */,
 				B09F1D401F6BCC8E009BC4BF /* Passage */,
@@ -188,6 +204,7 @@
 			children = (
 				B0CD1CCD1F6C01E800065FC2 /* UIView+nib.swift */,
 				B02AE3111F6C701A00B55B15 /* Giphy.swift */,
+				096037961F6D8A1F001C5374 /* DelayUtil.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -329,6 +346,7 @@
 			files = (
 				0950BFE41F6B02E300B76F2A /* LaunchScreen.storyboard in Resources */,
 				B02AE3081F6C070E00B55B15 /* CategoryOverviewCell.xib in Resources */,
+				096037951F6D84F2001C5374 /* AppLaunchViewController.xib in Resources */,
 				0960378A1F6D5FC8001C5374 /* PassageTableViewCell.xib in Resources */,
 				B059C3B01F6C98AF0023C785 /* PassageOverview.xib in Resources */,
 				0950BFEC1F6B083E00B76F2A /* GoogleService-Info.plist in Resources */,
@@ -434,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				096037901F6D65EF001C5374 /* PassageDetailsCellModel.swift in Sources */,
+				096037941F6D84F2001C5374 /* AppLaunchViewController.swift in Sources */,
 				B04F2DD01F6D2B8D009C75C9 /* PassageOverviewCelllModel.swift in Sources */,
 				B02AE3141F6C7C3F00B55B15 /* CategoryDetailsVIewModel.swift in Sources */,
 				B0CD1CCE1F6C01E800065FC2 /* UIView+nib.swift in Sources */,
@@ -453,6 +472,7 @@
 				0950BFDA1F6B02E300B76F2A /* AppDelegate.swift in Sources */,
 				FD1000021F6BABC600281FD0 /* Category.swift in Sources */,
 				FD0A80E91F6BDAB9007565AB /* Question.swift in Sources */,
+				096037971F6D8A1F001C5374 /* DelayUtil.swift in Sources */,
 				FD1000081F6BB0BE00281FD0 /* Passage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
