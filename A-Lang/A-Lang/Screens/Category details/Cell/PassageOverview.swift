@@ -16,18 +16,29 @@ class PassageOverview: FoldingCell {
     @IBOutlet weak var textPreviewLabel: UILabel!
     @IBOutlet weak var upwardsArrowImageView: UIImageView!
 
+    var indexPath: IndexPath!
+    var tapGesture = UITapGestureRecognizer()
+    var closeCellHandler: ((IndexPath) -> ())? = nil
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
         foregroundView.backgroundColor = ThemeManager.ThemeColor.categoryOverviewFront
         containerView.backgroundColor = ThemeManager.ThemeColor.categoryOverviewBack
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeCell))
+        upwardsArrowImageView.isUserInteractionEnabled = true
+        upwardsArrowImageView.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func closeCell() {
+        closeCellHandler?(indexPath)
     }
 
     override func animationDuration(_ itemIndex: NSInteger, type: FoldingCell.AnimationType) -> TimeInterval {
-        return [0.33, 0.25][itemIndex]
+        return [kOpenCellDuration, kCloseCellDuration][itemIndex]
     }
 
-    func configure(with model: PassageOverviewCellModel) {
+    func configure(with model: PassageOverviewCellModel, closeCellHandler: ((IndexPath) -> ())? = nil) {
         foregroundView.backgroundColor = model.displayColor
         containerView.backgroundColor = model.previewBackgroundColor
 
@@ -39,5 +50,8 @@ class PassageOverview: FoldingCell {
 
         bottomArrowImageView.image = ThemeManager.fontAwesomeImage(fontAwesome: .chevronDown, with: model.displayNameTextColor, andSize: bottomArrowImageView.bounds.size)
         upwardsArrowImageView.image = ThemeManager.fontAwesomeImage(fontAwesome: .chevronUp, with: model.previewTextColor, andSize: upwardsArrowImageView.bounds.size)
+
+        // if nothing is available for handler it will not change
+        self.closeCellHandler = closeCellHandler ?? self.closeCellHandler
     }
 }

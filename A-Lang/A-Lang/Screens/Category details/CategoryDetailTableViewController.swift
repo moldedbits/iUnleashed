@@ -8,6 +8,7 @@
 
 import UIKit
 import expanding_collection
+import SVProgressHUD
 
 class CategoryDetailTableViewController: ExpandingTableViewController {
 
@@ -43,6 +44,27 @@ class CategoryDetailTableViewController: ExpandingTableViewController {
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
     }
+
+    fileprivate func getDataFromAPI(forCell cell: PassageOverview, atIndexPath indexPath: IndexPath, shouldOpen: Bool) {
+        let selectedPassage = viewModel.passages[indexPath.row]
+        SVProgressHUD.show()
+        APIManager.shared.getPassageText(for: selectedPassage.id, inCategory: selectedPassage.categoryName) { bilingualText in
+            SVProgressHUD.dismiss()
+            self.viewModel.passages[indexPath.row].passageText = bilingualText
+            self.viewModel.cellModels[indexPath.row].textPreview = bilingualText.spanish ?? "No information available"
+            self.updateTableView(forCell: cell, atIndexPath: indexPath, shouldOpen: shouldOpen)
+        }
+    }
+
+    fileprivate func updateTableView(forCell cell: PassageOverview, atIndexPath indexPath: IndexPath, shouldOpen: Bool) {
+        viewModel.cellHeights[indexPath.row] = shouldOpen ? kOpenCellHeight : kClosedCellHeight
+        cell.selectedAnimation(shouldOpen, animated: true, completion: nil)
+        cell.configure(with: viewModel.cellModels[indexPath.row])
+        UIView.animate(withDuration: (shouldOpen ? kOpenCellDuration : kCloseCellDuration)) {
+            self.tableView.beginUpdates()
+            self.tableView.endUpdates()
+        }
+    }
 }
 
 extension CategoryDetailTableViewController {
@@ -56,7 +78,12 @@ extension CategoryDetailTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PassageOverview.self), for: indexPath) as! PassageOverview
-        cell.configure(with: viewModel.cellModels[indexPath.row])
+        cell.indexPath = indexPath
+        cell.configure(with: viewModel.cellModels[indexPath.row]) { indexPath in
+            guard let cell = tableView.cellForRow(at: indexPath) as? PassageOverview else { return }
+
+            self.updateTableView(forCell: cell, atIndexPath: indexPath, shouldOpen: false)
+        }
 
         return cell
     }
@@ -70,30 +97,15 @@ extension CategoryDetailTableViewController {
             return
         }
 
-        var duration = 0.0
-        if viewModel.cellHeights[indexPath.row] == kCloseCellHeight { // open cell
-            viewModel.cellHeights[indexPath.row] = kOpenCellHeight
-            cell.selectedAnimation(true, animated: true, completion: nil)
-            duration = 0.33
-
-            let selectedPassage = viewModel.passages[indexPath.row]
-            APIManager.shared.getPassageText(for: selectedPassage.id, inCategory: selectedPassage.categoryName) { bilingualText in
+        if viewModel.cellHeights[indexPath.row] == kClosedCellHeight { // open cell
+            if let _ = viewModel.passages[indexPath.row].passageText {
+                updateTableView(forCell: cell, atIndexPath: indexPath, shouldOpen: true)
+            } else {
+                getDataFromAPI(forCell: cell, atIndexPath: indexPath, shouldOpen: true)
             }
-//            APIManager.shared.getPassageSentences(for: viewModel.title, in: viewModel.passages[indexPath])
-            //TODO: Goto next screen
         } else {// close cell
-            let passageDetailViewModel = PassageDetailViewModel(with: viewModel.passages[indexPath.row])
-            let screen = PasageTableViewController(with: passageDetailViewModel)
-            navigationController?.pushViewController(screen, animated: true)
-            
-//            viewModel.cellHeights[indexPath.row] = kCloseCellHeight
-//            cell.selectedAnimation(false, animated: true, completion: nil)
-//            duration = 0.25
-        }
-
-        UIView.animate(withDuration: duration) {
-            tableView.beginUpdates()
-            tableView.endUpdates()
+            updateTableView(forCell: cell, atIndexPath: indexPath, shouldOpen: false)
+            //TODO: Goto next screen
         }
     }
 
