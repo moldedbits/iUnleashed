@@ -82,9 +82,13 @@ extension CategoryDetailTableViewController {
 //            APIManager.shared.getPassageSentences(for: viewModel.title, in: viewModel.passages[indexPath])
             //TODO: Goto next screen
         } else {// close cell
-            viewModel.cellHeights[indexPath.row] = kCloseCellHeight
-            cell.selectedAnimation(false, animated: true, completion: nil)
-            duration = 0.25
+            let passageDetailViewModel = PassageDetailViewModel(with: viewModel.passages[indexPath.row])
+            let screen = PasageTableViewController(with: passageDetailViewModel)
+            navigationController?.pushViewController(screen, animated: true)
+            
+//            viewModel.cellHeights[indexPath.row] = kCloseCellHeight
+//            cell.selectedAnimation(false, animated: true, completion: nil)
+//            duration = 0.25
         }
 
         UIView.animate(withDuration: duration) {
