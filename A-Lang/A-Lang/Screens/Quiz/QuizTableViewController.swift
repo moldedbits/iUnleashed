@@ -28,6 +28,8 @@ class QuizTableViewController: UITableViewController {
         tableView.register(QuizMultipleChoiceCell.nib(), forCellReuseIdentifier: String(describing: QuizMultipleChoiceCell.self))
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     // MARK: - Table view data source
@@ -41,12 +43,22 @@ class QuizTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: QuizMultipleChoiceCell.self), for: indexPath) as! QuizMultipleChoiceCell
-//        cell.configure(with: )
+        let sectionModel = viewModel.sectionModels[indexPath.section]
+        if sectionModel.type == .multipleChoice {
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: QuizMultipleChoiceCell.self), for: indexPath) as! QuizMultipleChoiceCell
+            cell.configure(with: sectionModel.item.cellModels[indexPath.row])
+        } else {
+            // return second type of cell
+        }
 
-        // Configure the cell...
+        return UITableViewCell()
+    }
 
-        return cell
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        for (row, model) in viewModel.sectionModels[indexPath.section].item.cellModels.enumerated() {
+            model.isSelected = row == indexPath.row
+        }
+        tableView.reloadSections(IndexSet(integer: indexPath.section), with: UITableViewRowAnimation.automatic)
     }
 
     /*
