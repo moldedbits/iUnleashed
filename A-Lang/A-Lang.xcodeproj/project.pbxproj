@@ -20,6 +20,7 @@
 		B02AE3101F6C6DD600B55B15 /* CategoryDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02AE30F1F6C6DD600B55B15 /* CategoryDetailTableViewController.swift */; };
 		B02AE3121F6C701A00B55B15 /* Giphy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02AE3111F6C701A00B55B15 /* Giphy.swift */; };
 		B02AE3141F6C7C3F00B55B15 /* CategoryDetailsVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02AE3131F6C7C3F00B55B15 /* CategoryDetailsVIewModel.swift */; };
+		B04F2DD01F6D2B8D009C75C9 /* PassageOverviewCelllModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F2DCF1F6D2B8D009C75C9 /* PassageOverviewCelllModel.swift */; };
 		B059C3AF1F6C98AF0023C785 /* PassageOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B059C3AD1F6C98AF0023C785 /* PassageOverview.swift */; };
 		B059C3B01F6C98AF0023C785 /* PassageOverview.xib in Resources */ = {isa = PBXBuildFile; fileRef = B059C3AE1F6C98AF0023C785 /* PassageOverview.xib */; };
 		B0CD1CCC1F6C018500065FC2 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD1CCB1F6C018500065FC2 /* ThemeManager.swift */; };
@@ -49,6 +50,7 @@
 		B02AE30F1F6C6DD600B55B15 /* CategoryDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailTableViewController.swift; sourceTree = "<group>"; };
 		B02AE3111F6C701A00B55B15 /* Giphy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Giphy.swift; path = "A-Lang/Screens/Category details/Giphy.swift"; sourceTree = SOURCE_ROOT; };
 		B02AE3131F6C7C3F00B55B15 /* CategoryDetailsVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsVIewModel.swift; sourceTree = "<group>"; };
+		B04F2DCF1F6D2B8D009C75C9 /* PassageOverviewCelllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageOverviewCelllModel.swift; sourceTree = "<group>"; };
 		B059C3AD1F6C98AF0023C785 /* PassageOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageOverview.swift; sourceTree = "<group>"; };
 		B059C3AE1F6C98AF0023C785 /* PassageOverview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassageOverview.xib; sourceTree = "<group>"; };
 		B0CD1CCB1F6C018500065FC2 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			children = (
 				B059C3AD1F6C98AF0023C785 /* PassageOverview.swift */,
 				B059C3AE1F6C98AF0023C785 /* PassageOverview.xib */,
+				B04F2DCF1F6D2B8D009C75C9 /* PassageOverviewCelllModel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04F2DD01F6D2B8D009C75C9 /* PassageOverviewCelllModel.swift in Sources */,
 				B02AE3141F6C7C3F00B55B15 /* CategoryDetailsVIewModel.swift in Sources */,
 				B0CD1CCE1F6C01E800065FC2 /* UIView+nib.swift in Sources */,
 				09ADE0B51F6BB0B4006EEB7E /* APIManager.swift in Sources */,

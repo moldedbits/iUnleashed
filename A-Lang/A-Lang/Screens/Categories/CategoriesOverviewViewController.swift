@@ -51,8 +51,14 @@ class CategoriesOverviewViewController: ExpandingViewController {
 
     private func gotoDetailScreen() {
         let selectedCategory = viewModel.categories[currentIndex]
-        let detailScreen = CategoryDetailTableViewController(with: CategoryDetailViewModel.dummy(with: selectedCategory.name ?? "Unknown"))
-        pushToViewController(detailScreen)
+        APIManager.shared.getPassagesForCategory(selectedCategory.name ?? "") { passages in
+            //
+            let viewModel = CategoryDetailViewModel(with: selectedCategory.name ?? "", and: passages)
+            let detailScreen = CategoryDetailTableViewController(with: viewModel)//CategoryDetailViewModel.dummy(with: selectedCategory.name ?? "Unknown"))
+            self.pushToViewController(detailScreen)
+        }
+//        let detailScreen = CategoryDetailTableViewController(with: CategoryDetailViewModel.dummy(with: selectedCategory.name ?? "Unknown"))
+//        pushToViewController(detailScreen)
     }
 }
 

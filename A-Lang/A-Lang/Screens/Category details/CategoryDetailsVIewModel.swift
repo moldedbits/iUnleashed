@@ -23,16 +23,19 @@ struct CategoryDetailViewModel {
 
     var title: String!
     var passages: [Passage]!
+    var cellModels: [PassageOverviewCellModel]!
 
     init(with title: String, and passages: [Passage]) {
         self.title = title
         self.passages = passages
         cellHeights = (0..<passages.count).map { _ in CellHeight.close }
+        // TODO:- Dummy passsage text
+        self.cellModels = self.passages.map { PassageOverviewCellModel(with: $0, andPassageText: "Some very very long text in spanish. This will be truncated. Some very very long text in spanish. This will be truncated. Some very very long text in spanish. This will be truncated. Some very very long text in spanish. This will be truncated.") }
     }
 
     static func dummy(with title: String) -> CategoryDetailViewModel {
         var passages = [Passage]()
-        for i in 0...7 {
+        for _ in 0...7 {
             let passage = Passage(JSON: [:])!
             passage.displayName = BilingualText(JSON: [:])
             passage.difficulty = "easy"

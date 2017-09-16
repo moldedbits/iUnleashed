@@ -10,7 +10,8 @@ import Foundation
 import ObjectMapper
 
 class Passage: Mappable {
-    
+
+    var categoryName: String!
     var difficulty: String?
     var displayName: BilingualText?
     
