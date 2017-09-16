@@ -20,17 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: UIApplicationDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-        // TODO: - configure FIRApp
         FirebaseApp.configure()
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        // TODO:- find a better way
-        APIManager.shared.getCategories { categories in
-            self.window?.rootViewController = UINavigationController(rootViewController: AppLaunchViewController())
-                //CategoriesOverviewViewController(with: CategoriesViewModel(with: categories)))// .dummy()))//
-            self.window?.makeKeyAndVisible()
-        }
-
+        self.window?.rootViewController = UINavigationController(rootViewController: AppLaunchViewController())
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 }
