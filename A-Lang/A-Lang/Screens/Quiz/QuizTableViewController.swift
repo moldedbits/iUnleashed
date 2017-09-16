@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class QuizTableViewController: UITableViewController {
 
@@ -22,6 +23,15 @@ class QuizTableViewController: UITableViewController {
         super.viewDidLoad()
 
         configureTableView()
+        SVProgressHUD.show()
+        APIManager.shared.getPassageQuestions(for: "0", in: "Introduction") { questions in
+//        APIManager.shared.getPassageSentences(for: viewModel.passage.id, in: viewModel.passage.categoryName) { sentences in
+            SVProgressHUD.dismiss()
+//            self.viewModel = sentences
+            self.viewModel = QuizViewModel.init(with: questions)
+//            self.viewModel.cellModel = PassageDetailsCellModel.init(with: sentences, andPassageText: self.viewModel.passage.passageText?.spanish ?? "")
+            self.tableView.reloadData()
+        }
     }
 
     func configureTableView() {

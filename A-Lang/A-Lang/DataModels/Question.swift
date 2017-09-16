@@ -26,6 +26,6 @@ class Question: Mappable {
         questionText <- map["question_text"]
         options <- map["options"]
         type <- map["type"]
-        questionType = QuestionType(rawValue: type) ?? QuestionType.multipleChoice
+        questionType = QuestionType(rawValue: type ?? "") ?? QuestionType.multipleChoice
     }
 }
