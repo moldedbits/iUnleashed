@@ -43,6 +43,7 @@ class PassageTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorStyle = .none
+        tableView.allowsSelection = false
     }
     
     func configureNavigationItems() {
