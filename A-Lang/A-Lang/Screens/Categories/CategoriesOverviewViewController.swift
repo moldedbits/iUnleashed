@@ -50,7 +50,20 @@ class CategoriesOverviewViewController: ExpandingViewController {
         pageControl.isUserInteractionEnabled = false
     }
 
-    private func gotoDetailScreen() {
+    fileprivate func openCell(_ cell: CategoryOverviewCell, _ indexPath: IndexPath) {
+        if cell.isOpened {
+            gotoDetailScreen()
+        } else {
+            if let passages = viewModel.categories[indexPath.row].passages {
+                cell.cellIsOpen(!cell.isOpened)
+                cell.setNumberOfPassages(passages.count)
+            } else {
+                getDataFromAPI(forCell: cell, atIndexPath: indexPath)
+            }
+        }
+    }
+
+    fileprivate func gotoDetailScreen() {
         let selectedCategory = viewModel.categories[currentIndex]
         if let passages = selectedCategory.passages {
             // this should be the case always here
@@ -82,16 +95,7 @@ extension CategoriesOverviewViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryOverviewCell else { return }
 
-        if cell.isOpened {
-            gotoDetailScreen()
-        } else {
-            if let passages = viewModel.categories[indexPath.row].passages {
-                cell.cellIsOpen(!cell.isOpened)
-                cell.setNumberOfPassages(passages.count)
-            } else {
-                getDataFromAPI(forCell: cell, atIndexPath: indexPath)
-            }
-        }
+        openCell(cell, indexPath)
     }
 
     private func getDataFromAPI(forCell cell: CategoryOverviewCell, atIndexPath indexPath: IndexPath, andShouldPushToDetailScreen shouldPushToDetailScreen: Bool = false) {
@@ -134,13 +138,12 @@ extension CategoriesOverviewViewController {
     @objc func swipeHandler(_ sender: UISwipeGestureRecognizer) {
         let indexPath = IndexPath(row: currentIndex, section: 0)
         guard let cell  = collectionView?.cellForItem(at: indexPath) as? CategoryOverviewCell else { return }
-        // double swipe Up transition
-        if cell.isOpened == true && sender.direction == .up {
-            gotoDetailScreen()
-        }
 
-        let open = sender.direction == .up
-        cell.cellIsOpen(open)
-        viewModel.categoryModels[indexPath.row].isOpen = cell.isOpened
+        if sender.direction == .up {
+            openCell(cell, indexPath)
+        } else {
+            cell.cellIsOpen(false)
+            viewModel.categoryModels[indexPath.row].isOpen = cell.isOpened
+        }
     }
 }

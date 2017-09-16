@@ -44,6 +44,27 @@ class CategoryDetailTableViewController: ExpandingTableViewController {
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
     }
+
+    fileprivate func getDataFromAPI(forCell cell: PassageOverview, atIndexPath indexPath: IndexPath, shouldOpen: Bool) {
+        let selectedPassage = viewModel.passages[indexPath.row]
+        SVProgressHUD.show()
+        APIManager.shared.getPassageText(for: selectedPassage.id, inCategory: selectedPassage.categoryName) { bilingualText in
+            SVProgressHUD.dismiss()
+            self.viewModel.passages[indexPath.row].passageText = bilingualText
+            self.viewModel.cellModels[indexPath.row].textPreview = bilingualText.spanish ?? "No information available"
+            self.updateTableView(forCell: cell, atIndexPath: indexPath, shouldOpen: shouldOpen)
+        }
+    }
+
+    fileprivate func updateTableView(forCell cell: PassageOverview, atIndexPath indexPath: IndexPath, shouldOpen: Bool) {
+        viewModel.cellHeights[indexPath.row] = shouldOpen ? kOpenCellHeight : kClosedCellHeight
+        cell.selectedAnimation(shouldOpen, animated: true, completion: nil)
+        cell.configure(with: viewModel.cellModels[indexPath.row])
+        UIView.animate(withDuration: (shouldOpen ? kOpenCellDuration : kCloseCellDuration)) {
+            self.tableView.beginUpdates()
+            self.tableView.endUpdates()
+        }
+    }
 }
 
 extension CategoryDetailTableViewController {
@@ -57,7 +78,12 @@ extension CategoryDetailTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PassageOverview.self), for: indexPath) as! PassageOverview
-        cell.configure(with: viewModel.cellModels[indexPath.row])
+        cell.indexPath = indexPath
+        cell.configure(with: viewModel.cellModels[indexPath.row]) { indexPath in
+            guard let cell = tableView.cellForRow(at: indexPath) as? PassageOverview else { return }
+
+            self.updateTableView(forCell: cell, atIndexPath: indexPath, shouldOpen: false)
+        }
 
         return cell
     }
@@ -71,36 +97,15 @@ extension CategoryDetailTableViewController {
             return
         }
 
-        if viewModel.cellHeights[indexPath.row] == kCloseCellHeight { // open cell
-
-            let selectedPassage = viewModel.passages[indexPath.row]
-            if let _ = viewModel.passages[indexPath.row].displayName {
-                viewModel.cellHeights[indexPath.row] = kOpenCellHeight
-                cell.selectedAnimation(true, animated: true, completion: nil)
-
-                return
-            }
-            SVProgressHUD.show()
-            APIManager.shared.getPassageText(for: selectedPassage.id, inCategory: selectedPassage.categoryName) { bilingualText in
-                SVProgressHUD.dismiss()
-                self.viewModel.passages[indexPath.row].displayName = bilingualText
-                self.viewModel.cellModels[indexPath.row].textPreview = bilingualText.spanish ?? "No information available"
-                self.updateTableView(forCell: cell, atIndexPath: indexPath, shouldOpen: true)
+        if viewModel.cellHeights[indexPath.row] == kClosedCellHeight { // open cell
+            if let _ = viewModel.passages[indexPath.row].passageText {
+                updateTableView(forCell: cell, atIndexPath: indexPath, shouldOpen: true)
+            } else {
+                getDataFromAPI(forCell: cell, atIndexPath: indexPath, shouldOpen: true)
             }
         } else {// close cell
-//            viewModel.cellHeights[indexPath.row] = kCloseCellHeight
-//            cell.selectedAnimation(false, animated: true, completion: nil)
-//            updateTableView(duration: 0.25)
+            updateTableView(forCell: cell, atIndexPath: indexPath, shouldOpen: false)
             //TODO: Goto next screen
-        }
-    }
-
-    private func updateTableView(forCell cell: PassageOverview, atIndexPath indexPath: IndexPath, shouldOpen: Bool) {
-        viewModel.cellHeights[indexPath.row] = shouldOpen ? kOpenCellHeight : kCloseCellHeight
-        cell.selectedAnimation(shouldOpen, animated: true, completion: nil)
-        UIView.animate(withDuration: (shouldOpen ? kOpenCellDuration : kCloseCellDuration)) {
-            self.tableView.beginUpdates()
-            self.tableView.endUpdates()
         }
     }
 

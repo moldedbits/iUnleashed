@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-let kCloseCellHeight: CGFloat = 44.0
+let kClosedCellHeight: CGFloat = 44.0
 let kCloseCellDuration = 0.25
 let kOpenCellHeight: CGFloat = 88.0
 let kOpenCellDuration = 0.33
 
 struct CellHeight {
-    static let close: CGFloat = kCloseCellHeight // equal or greater foregroundView height
+    static let close: CGFloat = kClosedCellHeight // equal or greater foregroundView height
     static let open: CGFloat = kOpenCellHeight // equal or greater containerView height
 }
 
