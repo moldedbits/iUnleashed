@@ -15,6 +15,7 @@ class Question: Mappable {
     var questionText: BilingualText?
     var options: [String]?
     var type: String?
+    var questionType: QuestionType!
     
     required convenience init?(map : Map) {
         self.init()
@@ -25,5 +26,6 @@ class Question: Mappable {
         questionText <- map["question_text"]
         options <- map["options"]
         type <- map["type"]
+        questionType = QuestionType(rawValue: type) ?? QuestionType.multipleChoice
     }
 }
