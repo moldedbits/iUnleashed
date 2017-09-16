@@ -22,23 +22,16 @@ struct ThemeManager {
         static let redDarkContrast = ContrastColorOf(FlatRedDark(), returnFlat: true)
 
         static let brownDark = FlatBrownDark()
+
+        static let yellowDark = FlatYellowDark()
+
+        static let categoryOverviewBackground = FlatPlum()
+        static let categoryOverviewBack = FlatLime()
+        static let categoryOverviewFront = FlatSkyBlue()
     }
 
     struct AwesomeFont {
         static let addressCard = FontAwesome.addressCard
-        static let addressBook = FontAwesome.addressBook
-        static let list = FontAwesome.list
-        static let bell = FontAwesome.bell
-        static let shoppingCart = FontAwesome.shoppingCart
-        static let user = FontAwesome.user
-        static let folder = FontAwesome.folder
-        static let folderOpen = FontAwesome.folderOpen
-        static let home = FontAwesome.home
-        static let pencil = FontAwesome.pencil
-        static let trash = FontAwesome.trash
-        static let bellO = FontAwesome.bellO
-        static let heartO = FontAwesome.heartO
-        static let heart = FontAwesome.heart
     }
 
     struct FontSize {
@@ -58,7 +51,22 @@ struct ThemeManager {
         return String.fontAwesomeIcon(name: fontAwesome)
     }
 
+    static func contrastColor(of color: UIColor) -> UIColor {
+        return ContrastColorOf(color, returnFlat: true)
+    }
+
     static func fontAwesomeImage(fontAwesome: FontAwesome, with color: UIColor = FlatTealDark(), andSize size: CGSize = CGSize(width: 100, height: 100)) -> UIImage {
         return UIImage.fontAwesomeIcon(name: fontAwesome, textColor: color, size: size)
+    }
+
+    static func gradientColor(with style: UIGradientStyle, and frame: CGRect, andColors colors: [UIColor]) -> UIColor {
+        return UIColor(gradientStyle: style, withFrame: frame, andColors: colors)
+    }
+
+    static func extractColorsFrom(_ image: UIImage) -> [UIColor] {
+        let averageColor = AverageColorFromImage(image)
+        let contrastColor = ContrastColorOf(averageColor, returnFlat: true)
+
+        return [contrastColor, averageColor]
     }
 }
