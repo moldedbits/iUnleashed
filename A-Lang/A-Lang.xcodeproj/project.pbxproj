@@ -11,6 +11,11 @@
 		0950BFE11F6B02E300B76F2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0950BFE01F6B02E300B76F2A /* Assets.xcassets */; };
 		0950BFE41F6B02E300B76F2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0950BFE21F6B02E300B76F2A /* LaunchScreen.storyboard */; };
 		0950BFEC1F6B083E00B76F2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */; };
+		096037891F6D5FC8001C5374 /* PassageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096037871F6D5FC8001C5374 /* PassageTableViewCell.swift */; };
+		0960378A1F6D5FC8001C5374 /* PassageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 096037881F6D5FC8001C5374 /* PassageTableViewCell.xib */; };
+		0960378C1F6D616A001C5374 /* PassageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960378B1F6D616A001C5374 /* PassageTableViewController.swift */; };
+		0960378E1F6D61F2001C5374 /* PassageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960378D1F6D61F2001C5374 /* PassageDetailViewModel.swift */; };
+		096037901F6D65EF001C5374 /* PassageDetailsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960378F1F6D65EF001C5374 /* PassageDetailsCellModel.swift */; };
 		09ADE0B51F6BB0B4006EEB7E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADE0B41F6BB0B4006EEB7E /* APIManager.swift */; };
 		B02AE3071F6C070E00B55B15 /* CategoryOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02AE3051F6C070E00B55B15 /* CategoryOverviewCell.swift */; };
 		B02AE3081F6C070E00B55B15 /* CategoryOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02AE3061F6C070E00B55B15 /* CategoryOverviewCell.xib */; };
@@ -39,6 +44,11 @@
 		0950BFE01F6B02E300B76F2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0950BFE31F6B02E300B76F2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0950BFEB1F6B083E00B76F2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		096037871F6D5FC8001C5374 /* PassageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageTableViewCell.swift; sourceTree = "<group>"; };
+		096037881F6D5FC8001C5374 /* PassageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassageTableViewCell.xib; sourceTree = "<group>"; };
+		0960378B1F6D616A001C5374 /* PassageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageTableViewController.swift; sourceTree = "<group>"; };
+		0960378D1F6D61F2001C5374 /* PassageDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageDetailViewModel.swift; sourceTree = "<group>"; };
+		0960378F1F6D65EF001C5374 /* PassageDetailsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageDetailsCellModel.swift; sourceTree = "<group>"; };
 		09ADE0B41F6BB0B4006EEB7E /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		2DF0BEF04719A31D25DAD2E8 /* Pods_A_Lang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Lang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DC75185A0B76498D6D6210 /* Pods-A-Lang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Lang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang.debug.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +114,16 @@
 				09B17F191F6BA70500B38993 /* SupportingFiles */,
 			);
 			path = "A-Lang";
+			sourceTree = "<group>";
+		};
+		096037861F6D5FA2001C5374 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				096037871F6D5FC8001C5374 /* PassageTableViewCell.swift */,
+				096037881F6D5FC8001C5374 /* PassageTableViewCell.xib */,
+				0960378F1F6D65EF001C5374 /* PassageDetailsCellModel.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		09B17F191F6BA70500B38993 /* SupportingFiles */ = {
@@ -195,6 +215,9 @@
 		B09F1D401F6BCC8E009BC4BF /* Passage */ = {
 			isa = PBXGroup;
 			children = (
+				096037861F6D5FA2001C5374 /* Cell */,
+				0960378B1F6D616A001C5374 /* PassageTableViewController.swift */,
+				0960378D1F6D61F2001C5374 /* PassageDetailViewModel.swift */,
 			);
 			path = Passage;
 			sourceTree = "<group>";
@@ -306,6 +329,7 @@
 			files = (
 				0950BFE41F6B02E300B76F2A /* LaunchScreen.storyboard in Resources */,
 				B02AE3081F6C070E00B55B15 /* CategoryOverviewCell.xib in Resources */,
+				0960378A1F6D5FC8001C5374 /* PassageTableViewCell.xib in Resources */,
 				B059C3B01F6C98AF0023C785 /* PassageOverview.xib in Resources */,
 				0950BFEC1F6B083E00B76F2A /* GoogleService-Info.plist in Resources */,
 				0950BFE11F6B02E300B76F2A /* Assets.xcassets in Resources */,
@@ -409,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				096037901F6D65EF001C5374 /* PassageDetailsCellModel.swift in Sources */,
 				B04F2DD01F6D2B8D009C75C9 /* PassageOverviewCelllModel.swift in Sources */,
 				B02AE3141F6C7C3F00B55B15 /* CategoryDetailsVIewModel.swift in Sources */,
 				B0CD1CCE1F6C01E800065FC2 /* UIView+nib.swift in Sources */,
@@ -419,8 +444,11 @@
 				B02AE3101F6C6DD600B55B15 /* CategoryDetailTableViewController.swift in Sources */,
 				B0CD1CCC1F6C018500065FC2 /* ThemeManager.swift in Sources */,
 				B02AE30A1F6C095400B55B15 /* CategoriesOverviewViewController.swift in Sources */,
+				0960378C1F6D616A001C5374 /* PassageTableViewController.swift in Sources */,
 				B02AE3071F6C070E00B55B15 /* CategoryOverviewCell.swift in Sources */,
 				B02AE3121F6C701A00B55B15 /* Giphy.swift in Sources */,
+				096037891F6D5FC8001C5374 /* PassageTableViewCell.swift in Sources */,
+				0960378E1F6D61F2001C5374 /* PassageDetailViewModel.swift in Sources */,
 				B059C3AF1F6C98AF0023C785 /* PassageOverview.swift in Sources */,
 				0950BFDA1F6B02E300B76F2A /* AppDelegate.swift in Sources */,
 				FD1000021F6BABC600281FD0 /* Category.swift in Sources */,
