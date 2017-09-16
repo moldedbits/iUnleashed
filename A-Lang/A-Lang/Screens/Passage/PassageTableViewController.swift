@@ -53,6 +53,14 @@ class PassageTableViewController: UITableViewController {
     
     @objc func goToQuizScreen() {
         
+        let passageDetailViewModel = PassageDetailViewModel(with: viewModel.passages[indexPath.row])
+        let screen = PassageTableViewController(with: passageDetailViewModel)
+        navigationController?.pushViewController(screen, animated: true)
+        SVProgressHUD.show()
+        APIManager.shared.getPassageQuestions(for: viewModel.passage.id, in: viewModel.passage.categoryName) { questions in
+            let quizViewController = QuizTableViewController(with: )
+            navigationController?.pushViewController(quizViewController, animated: true)
+        }
     }
     
     // MARK: - Table view data source
