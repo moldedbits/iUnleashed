@@ -75,8 +75,10 @@ extension CategoryDetailTableViewController {
             viewModel.cellHeights[indexPath.row] = kOpenCellHeight
             cell.selectedAnimation(true, animated: true, completion: nil)
             duration = 0.33
-            
 
+            let selectedPassage = viewModel.passages[indexPath.row]
+            APIManager.shared.getPassageText(for: selectedPassage.id, inCategory: selectedPassage.categoryName) { bilingualText in
+            }
 //            APIManager.shared.getPassageSentences(for: viewModel.title, in: viewModel.passages[indexPath])
             //TODO: Goto next screen
         } else {// close cell
