@@ -25,10 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         // TODO:- find a better way
-        APIManager.shared.getCategories { categories in
-            self.window?.rootViewController = UINavigationController(rootViewController: CategoriesOverviewViewController(with: CategoriesViewModel(with: categories)))
+//        APIManager.shared.getCategories { categories in
+            self.window?.rootViewController = UINavigationController(rootViewController: CategoriesOverviewViewController(with: CategoriesViewModel.dummy()))//(with: categories)))
             self.window?.makeKeyAndVisible()
-        }
+//        }
 
         return true
     }

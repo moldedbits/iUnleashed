@@ -11,6 +11,7 @@ import UIKit
 struct CategoryOverviewCellModel {
 
     var name: String!
+    var isOpen = false
     var type: CategoryOverviewType!
 
     init(with category: Category) {
@@ -22,20 +23,24 @@ struct CategoryOverviewCellModel {
 enum CategoryOverviewType: String {
 
     case travel = "Travel"
-    case relationships = "Relationship"
+    case relationships = "Relationships"
     case introduction = "Introduction"
     case work = "Work"
     case unknown
 
     var image: UIImage {
+        // TODO:- multiple images can be added for single category and random image can be picked
         switch self {
         case .travel: return #imageLiteral(resourceName: "travel")
+        case .introduction: return #imageLiteral(resourceName: "introduction")
+        case .work: return #imageLiteral(resourceName: "work")
+        case .relationships: return #imageLiteral(resourceName: "relationships")
         default: return UIImage()
         }
     }
 
     var textColor: UIColor {
-        return ThemeManager.contrastColor(of: frontAndBackColor.0)
+        return gradientColors.first ?? frontAndBackColor.1
     }
 
     var frontAndBackColor: (UIColor, UIColor) {

@@ -34,6 +34,8 @@ class CategoryOverviewCell: BasePageCollectionCell {
 
         numberOfPassagesLabel.textColor = model.type.gradientColors.last
         backContainerView.backgroundColor = model.type.gradientColors.first
+
+        cellIsOpen(model.isOpen, animated: false)
     }
 
     func setNumberOfPassages(_ number: Int) {

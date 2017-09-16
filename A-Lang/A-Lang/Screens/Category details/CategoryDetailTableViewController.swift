@@ -11,14 +11,24 @@ import expanding_collection
 
 class CategoryDetailTableViewController: ExpandingTableViewController {
 
+    var viewModel: CategoryDetailViewModel!
+
+    convenience init(with viewModel: CategoryDetailViewModel) {
+        self.init()
+        self.viewModel = viewModel
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         headerHeight = 236
+        configureTableView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        title = viewModel.title
         navigationController?.navigationBar.isHidden = false
         navigationItem.hidesBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.stop, target: self, action: #selector(pop))
@@ -27,75 +37,59 @@ class CategoryDetailTableViewController: ExpandingTableViewController {
     @objc func pop() {
         popTransitionAnimation()
     }
+
+    func configureTableView() {
+        tableView.register(PassageOverview.nib(), forCellReuseIdentifier: String(describing: PassageOverview.self))
+        tableView.tableFooterView = UIView()
+    }
 }
 
 extension CategoryDetailTableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return viewModel.passages.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PassageOverview.self), for: indexPath)
 
         return cell
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return viewModel.cellHeights[indexPath.row]
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? PassageOverview else {
+            return
+        }
+
+        var duration = 0.0
+        if viewModel.cellHeights[indexPath.row] == kCloseCellHeight { // open cell
+            viewModel.cellHeights[indexPath.row] = kOpenCellHeight
+            cell.selectedAnimation(true, animated: true, completion: nil)
+            duration = 0.33
+
+            //TODO: Goto next screen
+        } else {// close cell
+            viewModel.cellHeights[indexPath.row] = kCloseCellHeight
+            cell.selectedAnimation(false, animated: true, completion: nil)
+            duration = 0.25
+        }
+
+        UIView.animate(withDuration: duration) {
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let cell = cell as? PassageOverview {
+            cell.selectedAnimation(viewModel.cellHeights[indexPath.row] != CellHeight.close, animated: false, completion: nil)
+        }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

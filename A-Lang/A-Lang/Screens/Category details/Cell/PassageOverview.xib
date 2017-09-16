@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13122.17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="193" id="KGk-i7-Jjw" customClass="PassageOverview" customModule="A_Lang" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="329" height="193"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="329" height="192.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qe0-RS-IsN">
+                        <rect key="frame" x="0.0" y="0.0" width="329" height="88"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uk4-4a-u9N">
+                                <rect key="frame" x="135" y="33" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Uk4-4a-u9N" secondAttribute="trailing" constant="136" id="1ch-Jf-N47"/>
+                            <constraint firstItem="Uk4-4a-u9N" firstAttribute="leading" secondItem="Qe0-RS-IsN" secondAttribute="leading" constant="135" id="4Es-Di-0eZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Uk4-4a-u9N" secondAttribute="bottom" constant="34" id="Tk5-RZ-e1U"/>
+                            <constraint firstAttribute="height" constant="88" id="YV1-eS-rQY"/>
+                            <constraint firstItem="Uk4-4a-u9N" firstAttribute="top" secondItem="Qe0-RS-IsN" secondAttribute="top" constant="33" id="nh3-yB-GkK"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="00C-P6-e05" customClass="RotatedView" customModule="FoldingCell">
+                        <rect key="frame" x="0.0" y="0.0" width="329" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBd-12-RGw">
+                                <rect key="frame" x="142" y="12" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="Vdr-XB-VOE"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Qe0-RS-IsN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7rX-Jo-9Gu"/>
+                    <constraint firstAttribute="trailing" secondItem="Qe0-RS-IsN" secondAttribute="trailing" id="clj-T6-iDA"/>
+                    <constraint firstItem="Qe0-RS-IsN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dc9-WA-jiK"/>
+                    <constraint firstAttribute="trailing" secondItem="00C-P6-e05" secondAttribute="trailing" id="htM-YZ-4Yi"/>
+                    <constraint firstItem="00C-P6-e05" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="oHs-5Y-zzX"/>
+                    <constraint firstItem="00C-P6-e05" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ocX-uy-lQ8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="itemCount">
+                    <integer key="value" value="2"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="containerView" destination="Qe0-RS-IsN" id="69F-hC-yq7"/>
+                <outlet property="containerViewTop" destination="7rX-Jo-9Gu" id="fMC-EA-xFO"/>
+                <outlet property="foregroundView" destination="00C-P6-e05" id="Iki-tC-ngy"/>
+                <outlet property="foregroundViewTop" destination="ocX-uy-lQ8" id="Rit-s2-gYU"/>
+            </connections>
+            <point key="canvasLocation" x="-28.5" y="-106.5"/>
+        </tableViewCell>
+    </objects>
+</document>

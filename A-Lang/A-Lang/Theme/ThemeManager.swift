@@ -32,19 +32,6 @@ struct ThemeManager {
 
     struct AwesomeFont {
         static let addressCard = FontAwesome.addressCard
-        static let addressBook = FontAwesome.addressBook
-        static let list = FontAwesome.list
-        static let bell = FontAwesome.bell
-        static let shoppingCart = FontAwesome.shoppingCart
-        static let user = FontAwesome.user
-        static let folder = FontAwesome.folder
-        static let folderOpen = FontAwesome.folderOpen
-        static let home = FontAwesome.home
-        static let pencil = FontAwesome.pencil
-        static let trash = FontAwesome.trash
-        static let bellO = FontAwesome.bellO
-        static let heartO = FontAwesome.heartO
-        static let heart = FontAwesome.heart
     }
 
     struct FontSize {

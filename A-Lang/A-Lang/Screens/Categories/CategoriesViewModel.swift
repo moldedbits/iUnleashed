@@ -15,6 +15,17 @@ struct CategoriesViewModel {
 
     init(with categories: [Category]) {
         self.categories = categories
-        categoryModels = categories.map { CategoryOverviewCellModel(with: $0) }
+        categoryModels = self.categories.map { CategoryOverviewCellModel(with: $0) }
+    }
+
+    static func dummy() -> CategoriesViewModel {
+        var categories = [Category]()
+        for name in ["Relationships", "Travel", "Work", "Introduction", "Unknown"] {
+            let category = Category(JSON: [:])!
+            category.name = name
+            categories.append(category)
+        }
+
+        return CategoriesViewModel(with: categories)
     }
 }
