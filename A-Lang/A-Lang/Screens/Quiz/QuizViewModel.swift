@@ -12,8 +12,7 @@ struct QuizViewModel {
 
     var sectionModels: [QuizSectionModel] = []
 
-    init(with questionsArray: [Question]) {
-        let questions = questionsArray + questionsArray + questionsArray + questionsArray
+    init(with questions: [Question]) {
         var sectionModels = [QuizSectionModel]()
         for question in questions {
             var cellModels = [QuizAnswerCellModel]()
