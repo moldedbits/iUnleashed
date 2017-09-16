@@ -37,6 +37,7 @@
 		B04F2DE01F6DB02D009C75C9 /* QuizQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04F2DDE1F6DB02D009C75C9 /* QuizQuestionCell.xib */; };
 		B04F2DE31F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F2DE11F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.swift */; };
 		B04F2DE41F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04F2DE21F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.xib */; };
+		B04F2DE61F6DBEE7009C75C9 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F2DE51F6DBEE7009C75C9 /* UIViewController+alert.swift */; };
 		B059C3AF1F6C98AF0023C785 /* PassageOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B059C3AD1F6C98AF0023C785 /* PassageOverview.swift */; };
 		B059C3B01F6C98AF0023C785 /* PassageOverview.xib in Resources */ = {isa = PBXBuildFile; fileRef = B059C3AE1F6C98AF0023C785 /* PassageOverview.xib */; };
 		B0CD1CCC1F6C018500065FC2 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD1CCB1F6C018500065FC2 /* ThemeManager.swift */; };
@@ -83,6 +84,7 @@
 		B04F2DDE1F6DB02D009C75C9 /* QuizQuestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizQuestionCell.xib; sourceTree = "<group>"; };
 		B04F2DE11F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSubjectiveTableViewCell.swift; sourceTree = "<group>"; };
 		B04F2DE21F6DB3DA009C75C9 /* QuizSubjectiveTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizSubjectiveTableViewCell.xib; sourceTree = "<group>"; };
+		B04F2DE51F6DBEE7009C75C9 /* UIViewController+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+alert.swift"; path = "A-Lang/Screens/Quiz/Cells/subjective/UIViewController+alert.swift"; sourceTree = SOURCE_ROOT; };
 		B059C3AD1F6C98AF0023C785 /* PassageOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageOverview.swift; sourceTree = "<group>"; };
 		B059C3AE1F6C98AF0023C785 /* PassageOverview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassageOverview.xib; sourceTree = "<group>"; };
 		B0CD1CCB1F6C018500065FC2 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				B0CD1CCD1F6C01E800065FC2 /* UIView+nib.swift */,
 				B02AE3111F6C701A00B55B15 /* Giphy.swift */,
 				096037961F6D8A1F001C5374 /* DelayUtil.swift */,
+				B04F2DE51F6DBEE7009C75C9 /* UIViewController+alert.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				B02AE30E1F6C350C00B55B15 /* CategoriesViewModel.swift in Sources */,
 				B04F2DD81F6D98D2009C75C9 /* QuizMultipleChoiceCell.swift in Sources */,
 				B02AE3101F6C6DD600B55B15 /* CategoryDetailTableViewController.swift in Sources */,
+				B04F2DE61F6DBEE7009C75C9 /* UIViewController+alert.swift in Sources */,
 				B04F2DD51F6D8693009C75C9 /* QuizViewModel.swift in Sources */,
 				B0CD1CCC1F6C018500065FC2 /* ThemeManager.swift in Sources */,
 				B02AE30A1F6C095400B55B15 /* CategoriesOverviewViewController.swift in Sources */,

@@ -44,7 +44,7 @@ class QuizTableViewController: UITableViewController {
         for sectionModel in viewModel.sectionModels {
             max += 1
             if sectionModel.type == .subjective {
-                guard let userAnswer = sectionModel.userAnswer else { continue }
+                guard let userAnswer = sectionModel.userAnswer, !userAnswer.isEmpty else { continue }
                 if sectionModel.correctAnswer ?? "" == userAnswer {
                     correct += 1
                 }
@@ -55,8 +55,7 @@ class QuizTableViewController: UITableViewController {
                 }
             }
         }
-        print(correct)
-        print(max)
+        presentAlert(alertTitle: "Score", alertMessage: "\(correct)/\(max)")
     }
 
     func configureTableView() {
