@@ -30,6 +30,39 @@ struct ThemeManager {
         static let categoryOverviewFront = FlatSkyBlue()
     }
 
+    enum PassageDifficulty: String {
+        case absoluteBeginner = "Absolute Beginner"
+        case beginner
+        case intermediate
+        case pro
+        case unknown
+
+        var color1: UIColor {
+            switch self {
+            case .absoluteBeginner: return FlatSandDark()
+            case .beginner: return FlatMintDark()
+            case .intermediate: return FlatWatermelonDark()
+            case .pro: return FlatForestGreenDark()
+            default: return FlatWhiteDark()
+            }
+        }
+        var color1Contrast: UIColor {
+            return ContrastColorOf(color1, returnFlat: true)
+        }
+        var color2: UIColor {
+            switch self {
+            case .absoluteBeginner: return FlatSand()
+            case .beginner: return FlatMint()
+            case .intermediate: return FlatWatermelon()
+            case .pro: return FlatForestGreen()
+            default: return FlatWhite()
+            }
+        }
+        var color2Contrast: UIColor {
+            return ContrastColorOf(color2, returnFlat: true)
+        }
+    }
+
     struct AwesomeFont {
         static let addressCard = FontAwesome.addressCard
     }

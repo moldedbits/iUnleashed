@@ -58,12 +58,13 @@ class APIManager {
             }
             
             passages = Mapper<Passage>().mapArray(JSONArray: data)
+            let _ = passages.map { $0.categoryName = name }
             completion?(passages)
         }
     }
     
     // MARK: Provider pessage text based on a passage id and category name
-    func getPassageText(for id: String, in category: String, completion: ((BilingualText) -> ())? = nil) {
+    func getPassageText(for id: String, inCategory category: String, completion: ((BilingualText) -> ())? = nil) {
         ref.child(Child.passageDetails).child(category).child(id).child(Child.passageText).observe(.value) { snapshot in
             guard let data = snapshot.value as? [String: Any] else {
                 return

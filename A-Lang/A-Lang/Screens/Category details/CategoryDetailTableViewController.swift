@@ -41,6 +41,7 @@ class CategoryDetailTableViewController: ExpandingTableViewController {
     func configureTableView() {
         tableView.register(PassageOverview.nib(), forCellReuseIdentifier: String(describing: PassageOverview.self))
         tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
     }
 }
 
@@ -50,11 +51,12 @@ extension CategoryDetailTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return viewModel.passages.count
+        return viewModel.cellModels.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PassageOverview.self), for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PassageOverview.self), for: indexPath) as! PassageOverview
+        cell.configure(with: viewModel.cellModels[indexPath.row])
 
         return cell
     }
@@ -74,6 +76,10 @@ extension CategoryDetailTableViewController {
             cell.selectedAnimation(true, animated: true, completion: nil)
             duration = 0.33
 
+            let selectedPassage = viewModel.passages[indexPath.row]
+            APIManager.shared.getPassageText(for: selectedPassage.id, inCategory: selectedPassage.categoryName) { bilingualText in
+            }
+//            APIManager.shared.getPassageSentences(for: viewModel.title, in: viewModel.passages[indexPath])
             //TODO: Goto next screen
         } else {// close cell
             viewModel.cellHeights[indexPath.row] = kCloseCellHeight

@@ -10,9 +10,11 @@ import Foundation
 import ObjectMapper
 
 class Passage: Mappable {
-    
+
+    var categoryName: String!
     var difficulty: String?
     var displayName: BilingualText?
+    var id: String!
     
     required convenience init?(map : Map) {
         self.init()
@@ -21,5 +23,6 @@ class Passage: Mappable {
     func mapping(map: Map) {
         difficulty <- map["difficulty"]
         displayName <- map["display_name"]
+        id <- map["id"]
     }
 }
