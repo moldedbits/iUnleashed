@@ -14,6 +14,7 @@ class Passage: Mappable {
     var categoryName: String!
     var difficulty: String?
     var displayName: BilingualText?
+    var passageText: BilingualText?
     var id: String!
     
     required convenience init?(map : Map) {
@@ -23,6 +24,7 @@ class Passage: Mappable {
     func mapping(map: Map) {
         difficulty <- map["difficulty"]
         displayName <- map["display_name"]
+        passageText <- map["passage_text"]
         id <- map["id"]
     }
 }

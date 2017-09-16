@@ -8,6 +8,7 @@
 
 import UIKit
 import expanding_collection
+import  SVProgressHUD
 
 class CategoriesOverviewViewController: ExpandingViewController {
 
@@ -49,16 +50,32 @@ class CategoriesOverviewViewController: ExpandingViewController {
         pageControl.isUserInteractionEnabled = false
     }
 
-    private func gotoDetailScreen() {
-        let selectedCategory = viewModel.categories[currentIndex]
-        APIManager.shared.getPassagesForCategory(selectedCategory.name ?? "") { passages in
-            //
-            let viewModel = CategoryDetailViewModel(with: selectedCategory.name ?? "", and: passages)
-            let detailScreen = CategoryDetailTableViewController(with: viewModel)//CategoryDetailViewModel.dummy(with: selectedCategory.name ?? "Unknown"))
-            self.pushToViewController(detailScreen)
+    fileprivate func openCell(_ cell: CategoryOverviewCell, _ indexPath: IndexPath) {
+        if cell.isOpened {
+            gotoDetailScreen()
+        } else {
+            if let passages = viewModel.categories[indexPath.row].passages {
+                cell.cellIsOpen(!cell.isOpened)
+                cell.setNumberOfPassages(passages.count)
+            } else {
+                getDataFromAPI(forCell: cell, atIndexPath: indexPath)
+            }
         }
-//        let detailScreen = CategoryDetailTableViewController(with: CategoryDetailViewModel.dummy(with: selectedCategory.name ?? "Unknown"))
-//        pushToViewController(detailScreen)
+    }
+
+    fileprivate func gotoDetailScreen() {
+        let selectedCategory = viewModel.categories[currentIndex]
+        if let passages = selectedCategory.passages {
+            // this should be the case always here
+            let viewModel = CategoryDetailViewModel(with: selectedCategory.name ?? "", and: passages)
+            let detailScreen = CategoryDetailTableViewController(with: viewModel)
+            self.pushToViewController(detailScreen)
+        } else {
+            let indexPath = IndexPath(item: currentIndex, section: 0)
+            guard let cell = collectionView?.cellForItem(at: indexPath) as? CategoryOverviewCell else { return }
+
+            getDataFromAPI(forCell: cell, atIndexPath: indexPath, andShouldPushToDetailScreen: true)
+        }
     }
 }
 
@@ -78,12 +95,22 @@ extension CategoriesOverviewViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryOverviewCell else { return }
 
-        if cell.isOpened {
-            gotoDetailScreen()
-        } else {
+        openCell(cell, indexPath)
+    }
+
+    private func getDataFromAPI(forCell cell: CategoryOverviewCell, atIndexPath indexPath: IndexPath, andShouldPushToDetailScreen shouldPushToDetailScreen: Bool = false) {
+        SVProgressHUD.show()
+        APIManager.shared.getPassagesForCategory(viewModel.categories[indexPath.row].name ?? "") { passages in
+            SVProgressHUD.dismiss()
+            cell.setNumberOfPassages(passages.count)
+            self.viewModel.categories[indexPath.row].passages = passages
+            self.viewModel.categoryModels[indexPath.row].passagesCount = passages.count
             cell.cellIsOpen(!cell.isOpened)
-            APIManager.shared.getPassagesForCategory(viewModel.categories[indexPath.row].name ?? "") { passages in
-                cell.setNumberOfPassages(passages.count)
+            if shouldPushToDetailScreen {
+                let selectedCategory = self.viewModel.categories[indexPath.row]
+                let viewModel = CategoryDetailViewModel(with: selectedCategory.name ?? "", and: passages)
+                let detailScreen = CategoryDetailTableViewController(with: viewModel)
+                self.pushToViewController(detailScreen)
             }
         }
     }
@@ -111,13 +138,12 @@ extension CategoriesOverviewViewController {
     @objc func swipeHandler(_ sender: UISwipeGestureRecognizer) {
         let indexPath = IndexPath(row: currentIndex, section: 0)
         guard let cell  = collectionView?.cellForItem(at: indexPath) as? CategoryOverviewCell else { return }
-        // double swipe Up transition
-        if cell.isOpened == true && sender.direction == .up {
-            gotoDetailScreen()
-        }
 
-        let open = sender.direction == .up
-        cell.cellIsOpen(open)
-        viewModel.categoryModels[indexPath.row].isOpen = cell.isOpened
+        if sender.direction == .up {
+            openCell(cell, indexPath)
+        } else {
+            cell.cellIsOpen(false)
+            viewModel.categoryModels[indexPath.row].isOpen = cell.isOpened
+        }
     }
 }
