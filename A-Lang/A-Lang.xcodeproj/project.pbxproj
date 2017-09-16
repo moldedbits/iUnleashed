@@ -18,6 +18,7 @@
 		096037901F6D65EF001C5374 /* PassageDetailsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960378F1F6D65EF001C5374 /* PassageDetailsCellModel.swift */; };
 		096037941F6D84F2001C5374 /* AppLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096037921F6D84F2001C5374 /* AppLaunchViewController.swift */; };
 		096037951F6D84F2001C5374 /* AppLaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 096037931F6D84F2001C5374 /* AppLaunchViewController.xib */; };
+		096037971F6D8A1F001C5374 /* DelayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096037961F6D8A1F001C5374 /* DelayUtil.swift */; };
 		09ADE0B51F6BB0B4006EEB7E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADE0B41F6BB0B4006EEB7E /* APIManager.swift */; };
 		B02AE3071F6C070E00B55B15 /* CategoryOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02AE3051F6C070E00B55B15 /* CategoryOverviewCell.swift */; };
 		B02AE3081F6C070E00B55B15 /* CategoryOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02AE3061F6C070E00B55B15 /* CategoryOverviewCell.xib */; };
@@ -53,6 +54,7 @@
 		0960378F1F6D65EF001C5374 /* PassageDetailsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageDetailsCellModel.swift; sourceTree = "<group>"; };
 		096037921F6D84F2001C5374 /* AppLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchViewController.swift; sourceTree = "<group>"; };
 		096037931F6D84F2001C5374 /* AppLaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppLaunchViewController.xib; sourceTree = "<group>"; };
+		096037961F6D8A1F001C5374 /* DelayUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DelayUtil.swift; path = "A-Lang/SupportingFiles/DelayUtil.swift"; sourceTree = SOURCE_ROOT; };
 		09ADE0B41F6BB0B4006EEB7E /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		2DF0BEF04719A31D25DAD2E8 /* Pods_A_Lang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Lang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DC75185A0B76498D6D6210 /* Pods-A-Lang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Lang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A-Lang/Pods-A-Lang.debug.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			children = (
 				B0CD1CCD1F6C01E800065FC2 /* UIView+nib.swift */,
 				B02AE3111F6C701A00B55B15 /* Giphy.swift */,
+				096037961F6D8A1F001C5374 /* DelayUtil.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				0950BFDA1F6B02E300B76F2A /* AppDelegate.swift in Sources */,
 				FD1000021F6BABC600281FD0 /* Category.swift in Sources */,
 				FD0A80E91F6BDAB9007565AB /* Question.swift in Sources */,
+				096037971F6D8A1F001C5374 /* DelayUtil.swift in Sources */,
 				FD1000081F6BB0BE00281FD0 /* Passage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,9 +17,10 @@ class AppLaunchViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        delay(1.0) {
-            let homeTabBarController = UIStoryboard.homeTabBarController()
-            self.view.window?.rootViewController = homeTabBarController
+        APIManager.shared.getCategories { categories in
+            delay(1.5) {
+                self.navigationController?.pushViewController(CategoriesOverviewViewController(with: CategoriesViewModel(with: categories)), animated: true)
+            }
         }
     }
     
