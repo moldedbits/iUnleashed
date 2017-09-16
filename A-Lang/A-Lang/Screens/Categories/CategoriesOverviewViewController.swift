@@ -8,6 +8,7 @@
 
 import UIKit
 import expanding_collection
+import  SVProgressHUD
 
 class CategoriesOverviewViewController: ExpandingViewController {
 
@@ -51,14 +52,17 @@ class CategoriesOverviewViewController: ExpandingViewController {
 
     private func gotoDetailScreen() {
         let selectedCategory = viewModel.categories[currentIndex]
-        APIManager.shared.getPassagesForCategory(selectedCategory.name ?? "") { passages in
-            //
+        if let passages = selectedCategory.passages {
+            // this should be the case always here
             let viewModel = CategoryDetailViewModel(with: selectedCategory.name ?? "", and: passages)
-            let detailScreen = CategoryDetailTableViewController(with: viewModel)//CategoryDetailViewModel.dummy(with: selectedCategory.name ?? "Unknown"))
+            let detailScreen = CategoryDetailTableViewController(with: viewModel)
             self.pushToViewController(detailScreen)
+        } else {
+            let indexPath = IndexPath(item: currentIndex, section: 0)
+            guard let cell = collectionView?.cellForItem(at: indexPath) as? CategoryOverviewCell else { return }
+
+            getDataFromAPI(forCell: cell, atIndexPath: indexPath, andShouldPushToDetailScreen: true)
         }
-//        let detailScreen = CategoryDetailTableViewController(with: CategoryDetailViewModel.dummy(with: selectedCategory.name ?? "Unknown"))
-//        pushToViewController(detailScreen)
     }
 }
 
@@ -81,9 +85,28 @@ extension CategoriesOverviewViewController {
         if cell.isOpened {
             gotoDetailScreen()
         } else {
-            cell.cellIsOpen(!cell.isOpened)
-            APIManager.shared.getPassagesForCategory(viewModel.categories[indexPath.row].name ?? "") { passages in
+            if let passages = viewModel.categories[indexPath.row].passages {
+                cell.cellIsOpen(!cell.isOpened)
                 cell.setNumberOfPassages(passages.count)
+            } else {
+                getDataFromAPI(forCell: cell, atIndexPath: indexPath)
+            }
+        }
+    }
+
+    private func getDataFromAPI(forCell cell: CategoryOverviewCell, atIndexPath indexPath: IndexPath, andShouldPushToDetailScreen shouldPushToDetailScreen: Bool = false) {
+        SVProgressHUD.show()
+        APIManager.shared.getPassagesForCategory(viewModel.categories[indexPath.row].name ?? "") { passages in
+            SVProgressHUD.dismiss()
+            cell.setNumberOfPassages(passages.count)
+            self.viewModel.categories[indexPath.row].passages = passages
+            self.viewModel.categoryModels[indexPath.row].passagesCount = passages.count
+            cell.cellIsOpen(!cell.isOpened)
+            if shouldPushToDetailScreen {
+                let selectedCategory = self.viewModel.categories[indexPath.row]
+                let viewModel = CategoryDetailViewModel(with: selectedCategory.name ?? "", and: passages)
+                let detailScreen = CategoryDetailTableViewController(with: viewModel)
+                self.pushToViewController(detailScreen)
             }
         }
     }

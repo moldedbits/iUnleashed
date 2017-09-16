@@ -19,6 +19,7 @@ pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chamel
 pod 'FontAwesome.swift'
 pod 'ObjectMapper'
 pod 'FoldingCell', '~> 2.0.3'
+pod 'SVProgressHUD'
 
 end
 

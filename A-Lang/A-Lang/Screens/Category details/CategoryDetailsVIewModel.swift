@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 
 let kCloseCellHeight: CGFloat = 44.0
+let kCloseCellDuration = 0.25
 let kOpenCellHeight: CGFloat = 88.0
+let kOpenCellDuration = 0.33
 
 struct CellHeight {
     static let close: CGFloat = kCloseCellHeight // equal or greater foregroundView height
@@ -29,8 +31,9 @@ struct CategoryDetailViewModel {
         self.title = title
         self.passages = passages
         cellHeights = (0..<passages.count).map { _ in CellHeight.close }
-        // TODO:- Dummy passsage text
-        self.cellModels = self.passages.map { PassageOverviewCellModel(with: $0, andPassageText: "Some very very long text in spanish. This will be truncated. Some very very long text in spanish. This will be truncated. Some very very long text in spanish. This will be truncated. Some very very long text in spanish. This will be truncated.") }
+        self.cellModels = self.passages.map { PassageOverviewCellModel(with: $0) }
+
+            //, andPassageText: "Some very very long text in spanish. This will be truncated. Some very very long text in spanish. This will be truncated. Some very very long text in spanish. This will be truncated. Some very very long text in spanish. This will be truncated.") }
     }
 
     static func dummy(with title: String) -> CategoryDetailViewModel {

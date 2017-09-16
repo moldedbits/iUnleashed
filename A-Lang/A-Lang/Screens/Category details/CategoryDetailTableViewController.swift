@@ -8,6 +8,7 @@
 
 import UIKit
 import expanding_collection
+import SVProgressHUD
 
 class CategoryDetailTableViewController: ExpandingTableViewController {
 
@@ -70,26 +71,36 @@ extension CategoryDetailTableViewController {
             return
         }
 
-        var duration = 0.0
         if viewModel.cellHeights[indexPath.row] == kCloseCellHeight { // open cell
-            viewModel.cellHeights[indexPath.row] = kOpenCellHeight
-            cell.selectedAnimation(true, animated: true, completion: nil)
-            duration = 0.33
 
             let selectedPassage = viewModel.passages[indexPath.row]
-            APIManager.shared.getPassageText(for: selectedPassage.id, inCategory: selectedPassage.categoryName) { bilingualText in
-            }
-//            APIManager.shared.getPassageSentences(for: viewModel.title, in: viewModel.passages[indexPath])
-            //TODO: Goto next screen
-        } else {// close cell
-            viewModel.cellHeights[indexPath.row] = kCloseCellHeight
-            cell.selectedAnimation(false, animated: true, completion: nil)
-            duration = 0.25
-        }
+            if let _ = viewModel.passages[indexPath.row].displayName {
+                viewModel.cellHeights[indexPath.row] = kOpenCellHeight
+                cell.selectedAnimation(true, animated: true, completion: nil)
 
-        UIView.animate(withDuration: duration) {
-            tableView.beginUpdates()
-            tableView.endUpdates()
+                return
+            }
+            SVProgressHUD.show()
+            APIManager.shared.getPassageText(for: selectedPassage.id, inCategory: selectedPassage.categoryName) { bilingualText in
+                SVProgressHUD.dismiss()
+                self.viewModel.passages[indexPath.row].displayName = bilingualText
+                self.viewModel.cellModels[indexPath.row].textPreview = bilingualText.spanish ?? "No information available"
+                self.updateTableView(forCell: cell, atIndexPath: indexPath, shouldOpen: true)
+            }
+        } else {// close cell
+//            viewModel.cellHeights[indexPath.row] = kCloseCellHeight
+//            cell.selectedAnimation(false, animated: true, completion: nil)
+//            updateTableView(duration: 0.25)
+            //TODO: Goto next screen
+        }
+    }
+
+    private func updateTableView(forCell cell: PassageOverview, atIndexPath indexPath: IndexPath, shouldOpen: Bool) {
+        viewModel.cellHeights[indexPath.row] = shouldOpen ? kOpenCellHeight : kCloseCellHeight
+        cell.selectedAnimation(shouldOpen, animated: true, completion: nil)
+        UIView.animate(withDuration: (shouldOpen ? kOpenCellDuration : kCloseCellDuration)) {
+            self.tableView.beginUpdates()
+            self.tableView.endUpdates()
         }
     }
 

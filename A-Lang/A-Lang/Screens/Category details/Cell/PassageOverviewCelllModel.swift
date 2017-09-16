@@ -26,9 +26,8 @@ struct PassageOverviewCellModel {
         return difficulty.color2
     }
 
-    init(with passage: Passage, andPassageText text: String) {
+    init(with passage: Passage) {
         displayName = passage.displayName?.english ?? " - - "
-        textPreview = text
         difficulty = ThemeManager.PassageDifficulty(rawValue: passage.difficulty ?? "") ?? ThemeManager.PassageDifficulty.absoluteBeginner
     }
 }

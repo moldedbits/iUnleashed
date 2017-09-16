@@ -11,12 +11,14 @@ import UIKit
 struct CategoryOverviewCellModel {
 
     var name: String!
+    var passagesCount: Int
     var isOpen = false
     var type: CategoryOverviewType!
 
     init(with category: Category) {
         name = category.name
         type = CategoryOverviewType(rawValue: name) ?? CategoryOverviewType.unknown
+        passagesCount = category.passages?.count ?? 0
     }
 }
 
